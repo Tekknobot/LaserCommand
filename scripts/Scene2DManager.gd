@@ -200,7 +200,7 @@ func spawn_structures():
 		Map.set_cell(0, Vector2i(my_random_tile_x, my_random_tile_y), 8, Vector2i(0, 0), 0)
 		progresscount += 1
 
-	for i in 3: #towers
+	for i in 5: #towers
 		var my_random_tile_x = rng.randi_range(1, 14)
 		var my_random_tile_y = rng.randi_range(1, 14)
 		Map.set_cell(0, Vector2i(my_random_tile_x, my_random_tile_y), 9, Vector2i(0, 0), 0)
@@ -226,7 +226,7 @@ func spawn_structures():
 	structures_blank.append_array(stadiumsblank)
 	structures_blank.append_array(districtsblank)		
 				
-	for i in 3: #towersblank
+	for i in 5: #towersblank
 		var my_random_tile_x = rng.randi_range(1, 13)
 		var my_random_tile_y = rng.randi_range(1, 13)	
 		my_odd_x = my_random_tile_x + ((my_random_tile_x+1)%2 * sign(my_random_tile_x-my_odd_x))	
@@ -284,7 +284,7 @@ func spawn_towersblank():
 
 func generate_roads():				
 	# Roads		
-	for h in 3:
+	for h in 5:
 		var structure_group = get_tree().get_nodes_in_group("towersblank")
 		var structure_global_pos = structure_group[h].position
 		var structure_pos = Map.local_to_map(structure_global_pos)
@@ -419,24 +419,26 @@ func spawn_districts():
 	spawn_towers_final()
 	
 func spawn_towers_final():
-	for i in grid_width:
-		for j in grid_height:
-			if Map.get_cell_source_id(0, Vector2i(i,j)) == 43:	
-				tower_coord.append((Vector2i(i,j)))
-				
-	var tile_pos = tower_coord[rng.randi_range(0, tower_coord.size()-1)]
-	var tile_center_pos = Map.map_to_local(tile_pos) + Vector2(0,0) / 2		
-	var tower_inst = tower.instantiate()
-	tower_inst.position = Vector2(tile_center_pos.x, tile_center_pos.y-500)
-	var tween: Tween = create_tween()
-	tween.tween_property(tower_inst, "position", tile_center_pos, 0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)								
-	add_child(tower_inst)	
-	tower_inst.add_to_group("towers")	
-	tower_inst.z_index = tile_pos.x + tile_pos.y
-	tower_inst.get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))		
-	Map.set_cell(0, tile_pos, 9, Vector2i(0, 0), 0)
-	progresscount += 1						
-	#await get_tree().create_timer(0).timeout				
+	
+	for l in 4:
+		for i in grid_width:
+			for j in grid_height:
+				if Map.get_cell_source_id(0, Vector2i(i,j)) == 43:	
+					tower_coord.append((Vector2i(i,j)))
+					
+		var tile_pos = tower_coord[rng.randi_range(0, tower_coord.size()-1)]
+		var tile_center_pos = Map.map_to_local(tile_pos) + Vector2(0,0) / 2		
+		var tower_inst = tower.instantiate()
+		tower_inst.position = Vector2(tile_center_pos.x, tile_center_pos.y-500)
+		var tween: Tween = create_tween()
+		tween.tween_property(tower_inst, "position", tile_center_pos, 0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)								
+		add_child(tower_inst)	
+		tower_inst.add_to_group("towers")	
+		tower_inst.z_index = tile_pos.x + tile_pos.y
+		tower_inst.get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))		
+		Map.set_cell(0, tile_pos, 9, Vector2i(0, 0), 0)
+		progresscount += 1						
+		#await get_tree().create_timer(0).timeout				
 								
 	towers = get_tree().get_nodes_in_group("towers")
 	structures.append_array(towers)

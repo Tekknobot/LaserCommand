@@ -31,10 +31,9 @@ func _unhandled_input(event):
 	mouse_pos = get_global_mouse_position()
 	mouse_pos.y += 8
 	tile_pos = get_node("../TileMap").local_to_map(mouse_pos)
-		
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:		
-			if event.pressed and tile_pos == unit_pos and get_node("../Laser").laser_on == true and demolished == false:
+			if event.pressed and tile_pos == unit_pos and get_node("../Laser").laser_on == true and demolished == false and tile_pos == get_node("../Laser").laser_map:     
 				get_child(0).play("default")
 				#get_child(0).modulate = Color8(255, 255, 255) 			
 				get_node("../Line2D").hide()

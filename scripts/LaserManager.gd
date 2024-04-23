@@ -22,6 +22,8 @@ var rng = RandomNumberGenerator.new()
 
 var x = 0
 var laser_can = true
+var laser_pos
+var laser_map
 
 func _process(_delta):
 	laser_a = Vector2(0,-500)
@@ -40,7 +42,8 @@ func draw_laser():
 	var my_random_x = rng.randi_range(1, 14)
 	var my_random_y = rng.randi_range(1, 14)
 	var struct_size = scene2d.structures.size()
-	var laser_pos = Map.map_to_local(scene2d.structures[rng.randi_range(0, struct_size-1)].coord) + Vector2(0,0) / 2
+	laser_pos = Map.map_to_local(scene2d.structures[rng.randi_range(0, struct_size-1)].coord) + Vector2(0,0) / 2
+	laser_map = Map.local_to_map(laser_pos)
 								
 	#get_node("../TileMap").hovertile.hide()
 	line_2d.show()		
@@ -137,7 +140,7 @@ func draw_laser_player():
 	for i in $"..".structures.size():
 		if laser_pos == $"..".structures[i].position:
 			get_node("/root/Scene2D").structures[i].get_child(0).play("demolished")
-			get_node("/root/Scene2D").structures[i].get_child(0).modulate = Color8(255, 255, 255) 	
+			#get_node("/root/Scene2D").structures[i].get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))
 		
 	laser_on = false		
 	line_2d.hide()	

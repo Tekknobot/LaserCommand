@@ -1,5 +1,2 @@
 res://scenes/scene_2d.scn
-res://scripts/StructureManager.gd
 res://scripts/Scene2DManager.gd
-res://scripts/HovertileManager.gd
-res://scripts/LaserManager.gd
