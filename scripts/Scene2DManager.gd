@@ -143,7 +143,7 @@ func generate_world():
 
 func spawn_structures():						
 	# Randomize structures at start	
-	for i in 32: #buildings
+	for i in 64: #buildings
 		var my_random_tile_x = rng.randi_range(1, 14)
 		var my_random_tile_y = rng.randi_range(1, 14)
 		var tile_pos = Vector2i(my_random_tile_x, my_random_tile_y)

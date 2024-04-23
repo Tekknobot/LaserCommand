@@ -15,7 +15,7 @@ func _unhandled_input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed and $"../Laser".laser_on == false:
 				#print("Left button was clicked at ", event.position)
-				#$"../Laser".draw_laser()
+				#$"../Laser".draw_laser_player()
 				pass
 			else:
 				#print("Left button was released")
@@ -31,3 +31,4 @@ func laser_ai():
 
 func _on_timer_timeout():
 	$"../Laser".draw_laser()
+	#pass
