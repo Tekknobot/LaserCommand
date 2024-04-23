@@ -130,7 +130,7 @@ func generate_world():
 	
 	for x in grid_width:
 		grid.append([])
-		await get_tree().create_timer(0).timeout
+		#await get_tree().create_timer(0).timeout
 		for y in grid_height:
 			grid[x].append(0)
 			# We get the noise coordinate as an absolute value (which represents the gradient - or layer)	
@@ -143,7 +143,7 @@ func generate_world():
 
 func spawn_structures():						
 	# Randomize structures at start	
-	for i in 64: #buildings
+	for i in 32: #buildings
 		var my_random_tile_x = rng.randi_range(1, 14)
 		var my_random_tile_y = rng.randi_range(1, 14)
 		var tile_pos = Vector2i(my_random_tile_x, my_random_tile_y)
@@ -158,7 +158,7 @@ func spawn_structures():
 		buildingblank_inst.position = Vector2(tile_center_pos.x, tile_center_pos.y-500)						
 		var tween: Tween = create_tween()
 		tween.tween_property(buildingblank_inst, "position", tile_center_pos, 1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)				
-		await get_tree().create_timer(0).timeout		
+		#await get_tree().create_timer(0).timeout		
 		Map.set_cell(0, Vector2i(my_random_tile_x, my_random_tile_y), 6, Vector2i(0, 0), 0)		
 		progresscount += 1
 		
@@ -177,7 +177,7 @@ func spawn_structures():
 		stadiumblank_inst.position = Vector2(tile_center_pos.x, tile_center_pos.y-500)						
 		var tween: Tween = create_tween()
 		tween.tween_property(stadiumblank_inst, "position", tile_center_pos, 1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)				
-		await get_tree().create_timer(0).timeout			
+		#await get_tree().create_timer(0).timeout			
 		Map.set_cell(0, Vector2i(my_random_tile_x, my_random_tile_y), 7, Vector2i(0, 0), 0)
 		progresscount += 1
 			
@@ -196,7 +196,7 @@ func spawn_structures():
 		districtblank_inst.position = Vector2(tile_center_pos.x, tile_center_pos.y-500)						
 		var tween: Tween = create_tween()
 		tween.tween_property(districtblank_inst, "position", tile_center_pos, 1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)				
-		await get_tree().create_timer(0).timeout		
+		#await get_tree().create_timer(0).timeout		
 		Map.set_cell(0, Vector2i(my_random_tile_x, my_random_tile_y), 8, Vector2i(0, 0), 0)
 		progresscount += 1
 
@@ -271,7 +271,7 @@ func environment_tiles():
 				var size = moves.size()
 				var random_key = moves.keys()[randi() % size]					
 				move(random_key)
-				await get_tree().create_timer(0).timeout
+				#await get_tree().create_timer(0).timeout
 				progresscount += 1
 			map_pos = structure_pos
 			
@@ -293,25 +293,25 @@ func generate_roads():
 		for i in grid_width:
 			tile_id = 42
 			move(E)
-			await get_tree().create_timer(0).timeout
+			#await get_tree().create_timer(0).timeout
 			progresscount += 1
 		map_pos = structure_pos	
 		for i in grid_width:
 			tile_id = 41
 			move(S)
-			await get_tree().create_timer(0).timeout
+			#await get_tree().create_timer(0).timeout
 			progresscount += 1
 		map_pos = structure_pos
 		for i in grid_width:
 			tile_id = 42
 			move(W)
-			await get_tree().create_timer(0).timeout
+			#await get_tree().create_timer(0).timeout
 			progresscount += 1
 		map_pos = structure_pos
 		for i in grid_width:
 			tile_id = 41
 			move(N)	
-			await get_tree().create_timer(0).timeout
+			#await get_tree().create_timer(0).timeout
 			progresscount += 1
 					
 		# Intersection		
@@ -353,8 +353,8 @@ func spawn_buildings():
 				building_inst.get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))	
 				building_inst.position = Vector2(tile_center_pos.x, tile_center_pos.y-500)						
 				var tween: Tween = create_tween()
-				tween.tween_property(building_inst, "position", tile_center_pos, 1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)				
-				await get_tree().create_timer(0).timeout
+				tween.tween_property(building_inst, "position", tile_center_pos, 0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)				
+				#await get_tree().create_timer(0).timeout
 				Map.set_cell(0, Vector2i(i, j), 6, Vector2i(0, 0), 0)
 				progresscount += 1					
 
@@ -379,8 +379,8 @@ func spawn_stadiums():
 				stadium_inst.get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))		
 				stadium_inst.position = Vector2(tile_center_pos.x, tile_center_pos.y-500)						
 				var tween: Tween = create_tween()
-				tween.tween_property(stadium_inst, "position", tile_center_pos, 1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)				
-				await get_tree().create_timer(0).timeout
+				tween.tween_property(stadium_inst, "position", tile_center_pos, 0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)				
+				#await get_tree().create_timer(0).timeout
 				Map.set_cell(0, Vector2i(i, j), 7, Vector2i(0, 0), 0)
 				progresscount += 1
 				
@@ -406,8 +406,8 @@ func spawn_districts():
 				district_inst.get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))		
 				district_inst.position = Vector2(tile_center_pos.x, tile_center_pos.y-500)						
 				var tween: Tween = create_tween()
-				tween.tween_property(district_inst, "position", tile_center_pos, 1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)				
-				await get_tree().create_timer(0).timeout
+				tween.tween_property(district_inst, "position", tile_center_pos, 0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)				
+				#await get_tree().create_timer(0).timeout
 				Map.set_cell(0, Vector2i(i, j), 8, Vector2i(0, 0), 0)
 				progresscount += 1
 
@@ -429,14 +429,14 @@ func spawn_towers_final():
 	var tower_inst = tower.instantiate()
 	tower_inst.position = Vector2(tile_center_pos.x, tile_center_pos.y-500)
 	var tween: Tween = create_tween()
-	tween.tween_property(tower_inst, "position", tile_center_pos, 1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)								
+	tween.tween_property(tower_inst, "position", tile_center_pos, 0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)								
 	add_child(tower_inst)	
 	tower_inst.add_to_group("towers")	
 	tower_inst.z_index = tile_pos.x + tile_pos.y
 	tower_inst.get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))		
 	Map.set_cell(0, tile_pos, 9, Vector2i(0, 0), 0)
 	progresscount += 1						
-	await get_tree().create_timer(0).timeout				
+	#await get_tree().create_timer(0).timeout				
 								
 	towers = get_tree().get_nodes_in_group("towers")
 	structures.append_array(towers)
@@ -454,7 +454,7 @@ func add_to_structures_array():
 	structures.append_array(districts)
 	
 	check_duplicates(structures)
-	SpawnManager.spawn()
+	#SpawnManager.spawn()
 
 func check_duplicates(a):
 	var is_dupe = false
@@ -493,7 +493,7 @@ func check_duplicates(a):
 				Map.astar_grid.set_point_solid(j_pos, true)				
 
 func select_biome():	
-	biome = rng.randi_range(0, 5)	
+	biome = rng.randi_range(0, 0)	
 	if biome == 0:
 		world = true		
 		generate_world()

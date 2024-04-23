@@ -86,6 +86,8 @@ var swarming = false
 var random = []
 var random_once = true
 var index = 0
+var laser_coord
+var mouse_pos
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -150,15 +152,17 @@ func _input(event):
 			get_tree().quit()
 				
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and get_node("../SpawnManager").spawn_complete == true and moving == false and swarming == false:	
+		if event.button_index == MOUSE_BUTTON_LEFT:	
 			if event.pressed:
 				hovertile.show()
 				
-				var mouse_pos = get_global_mouse_position()
+				mouse_pos = get_global_mouse_position()
 				mouse_pos.y += 8
 				var tile_pos = local_to_map(mouse_pos)	
+				var laser_pos = map_to_local(tile_pos) + Vector2(0,0) / 2
 				#var tile_data = get_cell_tile_data(0, tile_pos)
-
+				
+				laser_coord = laser_pos
 				clicked_pos = tile_pos	
 				
 				humans = get_tree().get_nodes_in_group("humans")
@@ -219,8 +223,8 @@ func _input(event):
 						var right_clicked_pos = local_to_map(right_clicked_unit.position)
 						
 						#get_node("../Camera2D").shake(0.5, 30, 3)
-						laser_a = Vector2(right_clicked_unit.position.x,right_clicked_unit.position.y-16)
-						laser_b = Vector2(all_units[h].position.x,all_units[h].position.y-16)
+						laser_a = Vector2(hovertile.position.x,hovertile.position.y-500)
+						laser_b = Vector2(hovertile.position.x,hovertile.position.y-16)
 						 	
 						await SetLinePoints(Vector2(right_clicked_unit.position.x,right_clicked_unit.position.y-16), Vector2(all_units[h].position.x,all_units[h].position.y-16))
 						all_units[h].get_child(0).set_offset(Vector2(0,0))

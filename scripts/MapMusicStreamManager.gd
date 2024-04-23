@@ -8,7 +8,7 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	var num = rng.randi_range(0,0)
 	self.stream = self.map_music[num]
-	self.play()	
+	#self.play()	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
