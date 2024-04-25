@@ -15,24 +15,27 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$"../Control/Time".text = "Time: " + str(floor($"../LevelTimer".time_left))
-	
-	if $"../LevelTimer".time_left <= 80:
-		$"../LaserTimer".wait_time = 2.5
 
-	if $"../LevelTimer".time_left <= 60:
+	if $"../LevelTimer".time_left <= 90:
+		$"../LaserTimer".wait_time = 2.5
+			
+	if $"../LevelTimer".time_left <= 80:
 		$"../LaserTimer".wait_time = 2
 
-	if $"../LevelTimer".time_left <= 40:
+	if $"../LevelTimer".time_left <= 60:
+		$"../LaserTimer".wait_time = 1.75
+
+	if $"../LevelTimer".time_left <= 50:
 		$"../LaserTimer".wait_time = 1.5
 		
-	if $"../LevelTimer".time_left <= 20:
+	if $"../LevelTimer".time_left <= 40:
 		$"../LaserTimer".wait_time = 1.25	
 		
-	if $"../LevelTimer".time_left <= 15:
+	if $"../LevelTimer".time_left <= 30:
 		$"../LaserTimer".wait_time = 1.15			
 
 	if $"../LevelTimer".time_left <= 5:
-		$"../LaserTimer".wait_time = 1	
+		$"../LaserTimer".wait_time = 1.1	
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
