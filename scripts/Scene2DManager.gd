@@ -242,7 +242,7 @@ func spawn_structures():
 		towerblank_inst.get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))		
 		progresscount += 1
 			
-	environment_tiles()
+	await environment_tiles()
 			
 func environment_tiles():	
 	if world == true:

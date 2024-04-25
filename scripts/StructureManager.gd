@@ -11,6 +11,8 @@ var unit_pos
 
 var demolished = false
 
+var structure_saves
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

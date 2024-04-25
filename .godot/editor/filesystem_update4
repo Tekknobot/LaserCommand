@@ -1,2 +1,6 @@
+res://scenes/sprites/Zombie_Radioactive.scn
 res://scenes/scene_2d.scn
 res://scripts/Scene2DManager.gd
+res://scripts/HovertileManager.gd
+res://scripts/LaserManager.gd
+res://scripts/StructureManager.gd

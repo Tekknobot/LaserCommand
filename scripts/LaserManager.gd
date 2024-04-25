@@ -67,6 +67,11 @@ func draw_laser():
 		await get_tree().create_timer(0.05).timeout
 		line_2d.set_width(2)
 		line_2d.set_default_color(Color.PALE_VIOLET_RED)
+		for j in $"..".structures.size():
+			if laser_pos == $"..".structures[j].position:	
+				var tween: Tween = create_tween()
+				tween.tween_property(get_node("/root/Scene2D").structures[j], "modulate:v", 1, 0.20).from(5)					
+		
 		await get_tree().create_timer(0.05).timeout
 
 	if laser_can == true:
