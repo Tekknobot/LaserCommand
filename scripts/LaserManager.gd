@@ -98,7 +98,9 @@ func draw_laser():
 		if get_node("/root/Scene2D/Laser").demolished_structures >= $"..".structures.size() / 4 and $"../Hovertile".stop_laser != true:
 			$"../Control/GAMEOVER".show()	
 			$"../SoundStream".stream = $"../SoundStream".map_sfx[9]
-			$"../SoundStream".play()		
+			$"../SoundStream".play()
+			
+			$"../LevelTimer".stop()		
 
 	laser_on = false		
 	line_2d.hide()	
