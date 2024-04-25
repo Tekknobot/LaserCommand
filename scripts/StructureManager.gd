@@ -10,8 +10,7 @@ var mouse_pos
 var unit_pos
 
 var demolished = false
-
-var structure_saves
+var structure_saves = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,5 +40,8 @@ func _unhandled_input(event):
 				get_node("../Line2D").hide()
 				get_node("../Laser").laser_can = false
 				$"../SoundStream".stream = $"../SoundStream".map_sfx[6]
-				$"../SoundStream".play()					
+				$"../SoundStream".play()		
+				
+				get_node("../Hovertile").structure_saves += 1	
+				get_node("../Control").get_child(0).text = "Intercepts " + str(get_node("../Hovertile").structure_saves)		
 	#pass	
