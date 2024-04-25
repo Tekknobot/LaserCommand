@@ -37,10 +37,10 @@ func draw_laser():
 	$"../SoundStream".stream = $"../SoundStream".map_sfx[3]
 	$"../SoundStream".play()	
 							
-	#Remove hover tiles										
-	for j in node2D.grid_height:
-		for k in node2D.grid_width:
-			get_node("../TileMap").set_cell(1, Vector2i(j,k), -1, Vector2i(0, 0), 0)
+	##Remove hover tiles										
+	#for j in node2D.grid_height:
+		#for k in node2D.grid_width:
+			#get_node("../TileMap").set_cell(1, Vector2i(j,k), -1, Vector2i(0, 0), 0)
 
 	var my_random_x = rng.randi_range(1, 14)
 	var my_random_y = rng.randi_range(1, 14)
@@ -93,7 +93,12 @@ func draw_laser():
 				get_node("/root/Scene2D").structures[i].demolished = true
 				
 				demolished_structures += 1				
-				get_node("../Control").get_child(1).text = "Demolished "+ str(demolished_structures)
+				get_node("../Control").get_child(1).text = "Demolished "+ str(demolished_structures) + " of " + str($"..".structures.size()/4)
+				
+		if get_node("/root/Scene2D/Laser").demolished_structures >= $"..".structures.size() / 4:
+			$"../Control/GAMEOVER".show()	
+			$"../SoundStream".stream = $"../SoundStream".map_sfx[9]
+			$"../SoundStream".play()		
 
 	laser_on = false		
 	line_2d.hide()	

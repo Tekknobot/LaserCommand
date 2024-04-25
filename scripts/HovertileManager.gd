@@ -6,13 +6,15 @@ var structure_saves = 0
 var demolihed_count = 0
 var demolished_structures = 0
 
+var stop_laser = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	$"../Control/Time".text = "Time: " + str(floor($"../LevelTimer".time_left))
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -41,7 +43,18 @@ func _unhandled_input(event):
 			
 			structure_saves = 0	
 			get_node("../Control").get_child(0).text = "Intercepts " + str(structure_saves)						
-
+			get_node("../Control").get_child(1).text = "Demolished " + str(get_node("/root/Scene2D/Laser").demolished_structures)
+			
+			
 func _on_timer_timeout():
-	$"../Laser".draw_laser()
+	if stop_laser == false:
+		$"../Laser".draw_laser()
 	
+	
+func _on_level_timer_timeout():
+	$"../Control/CLEARED".show()
+	$"../LevelTimer".stop()
+	stop_laser = true	
+	
+	$"../SoundStream".stream = $"../SoundStream".map_sfx[10]
+	$"../SoundStream".play()		
