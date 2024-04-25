@@ -26,7 +26,7 @@ var laser_pos
 var laser_map
 
 var demolihed_count = 0
-var demolished_structures = []
+var demolished_structures = 0
 
 func _process(_delta):
 	laser_a = Vector2(0,-500)
@@ -92,8 +92,8 @@ func draw_laser():
 				get_node("/root/Scene2D").structures[i].get_child(0).modulate = Color8(255, 255, 255) 	
 				get_node("/root/Scene2D").structures[i].demolished = true
 				
-				demolished_structures.append(get_node("/root/Scene2D").structures[i])				
-				get_node("../Control").get_child(1).text = "Demolished "+ str(demolished_structures.size())
+				demolished_structures += 1				
+				get_node("../Control").get_child(1).text = "Demolished "+ str(demolished_structures)
 
 	laser_on = false		
 	line_2d.hide()	
