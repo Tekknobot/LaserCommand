@@ -27,6 +27,7 @@ var laser_map
 
 var demolihed_count = 0
 var demolished_structures = 0
+var gameover = false
 
 func _process(_delta):
 	laser_a = Vector2(0,-500)
@@ -104,6 +105,14 @@ func draw_laser():
 			
 			$"../LevelTimer".paused = true	
 			$"../Hovertile".stop_laser = true	
+
+	#Boss loses			
+	if $"../Control/BossBar".value <= 0:
+		$"../Control/CLEARED".show()
+		$"../LevelTimer".stop()	
+		$"../MapMusicStream".playing = true	
+		get_node("../Hovertile").stop_laser = true	
+		gameover = true
 
 	laser_on = false		
 	line_2d.hide()	

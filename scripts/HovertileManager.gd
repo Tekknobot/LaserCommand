@@ -44,7 +44,7 @@ func _process(delta):
 		$"../LaserTimer".wait_time = 1.1	
 		
 	if $"../LevelTimer".time_left <= 5:
-		$"../LaserTimer".wait_time = 1.1	
+		$"../LaserTimer".wait_time = 1.1			
 				
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
