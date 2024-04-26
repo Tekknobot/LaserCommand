@@ -23,27 +23,27 @@ func _process(delta):
 		$"../LaserTimer".wait_time = 2
 
 	if $"../LevelTimer".time_left <= 70:
-		$"../LaserTimer".wait_time = 1.75
+		$"../LaserTimer".wait_time = 1.7
 
 	if $"../LevelTimer".time_left <= 60:
-		$"../LaserTimer".wait_time = 1.5
+		$"../LaserTimer".wait_time = 1.6
 		
 	if $"../LevelTimer".time_left <= 50:
-		$"../LaserTimer".wait_time = 1.4	
+		$"../LaserTimer".wait_time = 1.5	
 		
 	if $"../LevelTimer".time_left <= 40:
-		$"../LaserTimer".wait_time = 1.3			
+		$"../LaserTimer".wait_time = 1.4			
 
 	if $"../LevelTimer".time_left <= 30:
-		$"../LaserTimer".wait_time = 1.2	
+		$"../LaserTimer".wait_time = 1.3	
 		
 	if $"../LevelTimer".time_left <= 20:
-		$"../LaserTimer".wait_time = 1.1	
+		$"../LaserTimer".wait_time = 1.2	
 
 	if $"../LevelTimer".time_left <= 10:
 		$"../LaserTimer".wait_time = 1.1	
 		
-	if $"../LevelTimer".time_left <= 5:
+	if $"../LevelTimer".time_left <= 3:
 		$"../LaserTimer".wait_time = 1	
 				
 func _unhandled_input(event):
