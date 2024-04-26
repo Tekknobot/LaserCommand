@@ -43,8 +43,8 @@ func _process(delta):
 	if $"../LevelTimer".time_left <= 10:
 		$"../LaserTimer".wait_time = 1.1	
 		
-	if $"../LevelTimer".time_left <= 3:
-		$"../LaserTimer".wait_time = 1	
+	if $"../LevelTimer".time_left <= 5:
+		$"../LaserTimer".wait_time = 1.1	
 				
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
@@ -74,13 +74,11 @@ func _unhandled_input(event):
 			structure_saves = 0	
 			get_node("../Control").get_child(0).text = "Intercepts " + str(structure_saves)						
 			get_node("../Control").get_child(1).text = "Demolished " + str(get_node("/root/Scene2D/Laser").demolished_structures) + " of " + str($"..".structures.size()/4)
-			
-			
+						
 func _on_timer_timeout():
 	if stop_laser == false:
 		$"../Laser".draw_laser()
-	
-	
+		
 func _on_level_timer_timeout():
 	$"../Control/CLEARED".show()
 	$"../LevelTimer".stop()
