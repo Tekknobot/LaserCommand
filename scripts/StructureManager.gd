@@ -4,6 +4,8 @@ extends Area2D
 @export var demolished_texture: Texture2D
 @onready var Map = $TileMap
 
+var seeker = preload("res://scenes/projectiles/projectile.scn")
+
 var tile_pos
 var coord
 var mouse_pos
@@ -11,7 +13,7 @@ var unit_pos
 
 var demolished = false
 var structure_saves = 0
-
+var middle = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -43,5 +45,44 @@ func _unhandled_input(event):
 				$"../SoundStream".play()		
 				
 				get_node("../Hovertile").structure_saves += 1	
-				get_node("../Control").get_child(0).text = "Intercepts " + str(get_node("../Hovertile").structure_saves)		
-	#pass	
+				get_node("../Control").get_child(0).text = "Intercepts " + str(get_node("../Hovertile").structure_saves)	
+				return
+					
+		if event.button_index == MOUSE_BUTTON_LEFT:		
+			if event.pressed and tile_pos == unit_pos and middle == false:
+				middle = true
+				var tile_position = get_node("../TileMap").map_to_local(tile_pos) + Vector2(0,0) / 2
+				await SetLinePoints(tile_position, get_node("../Drone").position)
+				
+func SetLinePoints(a: Vector2, b: Vector2):
+	var _a = get_node("../TileMap").local_to_map(a)
+	var _b = get_node("../TileMap").local_to_map(b)		
+	
+	var seeker_instance = seeker.instantiate()
+	var seeker_position = get_node("../TileMap").map_to_local(_a) + Vector2(0,0) / 2
+	seeker_instance.set_name("seeker")
+	get_parent().add_child(seeker_instance)	
+	
+	seeker_instance.position = a
+	seeker_instance.z_index = seeker_instance.position.x + seeker_instance.position.y
+	var tween: Tween = create_tween()
+	tween.tween_property(seeker_instance, "position", b, 4).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)	
+	await get_tree().create_timer(4).timeout	
+	
+
+	var explosion = preload("res://scenes/vfx/explosion.scn")
+	var explosion_instance = explosion.instantiate()
+	var explosion_position = get_node("../TileMap").map_to_local(_b) + Vector2(0,0) / 2
+	explosion_instance.set_name("explosion")
+	get_parent().add_child(explosion_instance)
+	explosion_instance.position = explosion_position	
+	explosion_instance.position.y -= 16
+	explosion_instance.z_index = (_b.x + _b.y) + 1
+
+	$"../SoundStream".stream = $"../SoundStream".map_sfx[8]
+	$"../SoundStream".play()	
+	get_node("../Camera2D").shake(1, 30, 3)
+	$"../Control/BossBar".value -= 1
+	var tween2: Tween = create_tween()
+	tween2.tween_property($"../Control/BossBar", "modulate:v", 1, 0.20).from(5)
+	middle = false

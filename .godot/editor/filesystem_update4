@@ -2,3 +2,7 @@ res://scenes/scene_2d.scn
 res://scripts/LaserManager.gd
 res://scripts/HovertileManager.gd
 res://scenes/vfx/blood.scn
+res://scripts/StructureManager.gd
+res://scripts/CityLaserManager.gd
+res://scripts/ProjectileManager.gd
+res://scripts/CameraManager.gd
