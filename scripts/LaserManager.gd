@@ -62,7 +62,9 @@ func draw_laser():
 	get_parent().add_child(blood_instance)
 	blood_instance.position = blood_position
 	blood_instance.emitting = true	
-
+	var struct_pos = get_node("../TileMap").local_to_map(Vector2(laser_pos.x, laser_pos.y-8))
+	blood_instance.z_index = (struct_pos.x + struct_pos.y) + 4
+	
 	for i in 8:
 		line_2d.set_antialiased(false)
 		line_2d.set_width(1)	
@@ -100,7 +102,8 @@ func draw_laser():
 			$"../SoundStream".stream = $"../SoundStream".map_sfx[9]
 			$"../SoundStream".play()
 			
-			$"../LevelTimer".stop()		
+			$"../LevelTimer".paused = true	
+			$"../Hovertile".stop_laser = true	
 
 	laser_on = false		
 	line_2d.hide()	

@@ -22,21 +22,30 @@ func _process(delta):
 	if $"../LevelTimer".time_left <= 80:
 		$"../LaserTimer".wait_time = 2
 
-	if $"../LevelTimer".time_left <= 60:
+	if $"../LevelTimer".time_left <= 70:
 		$"../LaserTimer".wait_time = 1.75
 
-	if $"../LevelTimer".time_left <= 50:
+	if $"../LevelTimer".time_left <= 60:
 		$"../LaserTimer".wait_time = 1.5
 		
-	if $"../LevelTimer".time_left <= 40:
-		$"../LaserTimer".wait_time = 1.25	
+	if $"../LevelTimer".time_left <= 50:
+		$"../LaserTimer".wait_time = 1.4	
 		
-	if $"../LevelTimer".time_left <= 30:
-		$"../LaserTimer".wait_time = 1.15			
+	if $"../LevelTimer".time_left <= 40:
+		$"../LaserTimer".wait_time = 1.3			
 
-	if $"../LevelTimer".time_left <= 5:
+	if $"../LevelTimer".time_left <= 30:
+		$"../LaserTimer".wait_time = 1.2	
+		
+	if $"../LevelTimer".time_left <= 20:
 		$"../LaserTimer".wait_time = 1.1	
 
+	if $"../LevelTimer".time_left <= 10:
+		$"../LaserTimer".wait_time = 1.1	
+		
+	if $"../LevelTimer".time_left <= 5:
+		$"../LaserTimer".wait_time = 1	
+				
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -64,7 +73,7 @@ func _unhandled_input(event):
 			
 			structure_saves = 0	
 			get_node("../Control").get_child(0).text = "Intercepts " + str(structure_saves)						
-			get_node("../Control").get_child(1).text = "Demolished " + str(get_node("/root/Scene2D/Laser").demolished_structures)
+			get_node("../Control").get_child(1).text = "Demolished " + str(get_node("/root/Scene2D/Laser").demolished_structures) + " of " + str($"..".structures.size()/4)
 			
 			
 func _on_timer_timeout():

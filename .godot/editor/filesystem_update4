@@ -1,3 +1,4 @@
 res://scenes/scene_2d.scn
 res://scripts/LaserManager.gd
 res://scripts/HovertileManager.gd
+res://scenes/vfx/blood.scn
