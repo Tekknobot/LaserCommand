@@ -7,3 +7,4 @@ res://scripts/CityLaserManager.gd
 res://scripts/ProjectileManager.gd
 res://scripts/CameraManager.gd
 res://scripts/MapMusicStreamManager.gd
+res://scripts/Scene2DManager.gd

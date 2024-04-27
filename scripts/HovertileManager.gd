@@ -73,7 +73,7 @@ func _unhandled_input(event):
 			
 			structure_saves = 0	
 			get_node("../Control").get_child(0).text = "Intercepts " + str(structure_saves)						
-			get_node("../Control").get_child(1).text = "Demolished " + str(get_node("/root/Scene2D/Laser").demolished_structures) + " of " + str($"..".structures.size()/4)
+			get_node("../Control").get_child(1).text = "Demolished " + str(get_node("/root/Scene2D/Laser").demolished_structures) + " of " + str($"..".structures.size() / 3)
 						
 func _on_timer_timeout():
 	if stop_laser == false:
