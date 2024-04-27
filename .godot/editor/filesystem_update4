@@ -8,3 +8,6 @@ res://scripts/ProjectileManager.gd
 res://scripts/CameraManager.gd
 res://scripts/MapMusicStreamManager.gd
 res://scripts/Scene2DManager.gd
+res://shaders/gameboy.gdshader
+res://scenes/building.scn
+res://scenes/projectiles/projectile.scn

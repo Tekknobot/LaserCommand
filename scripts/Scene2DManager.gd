@@ -350,7 +350,7 @@ func spawn_buildings():
 				add_child(building_inst)
 				building_inst.add_to_group("buildings")		
 				building_inst.z_index = tile_pos.x + tile_pos.y
-				building_inst.get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))	
+				#building_inst.get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))	
 				building_inst.position = Vector2(tile_center_pos.x, tile_center_pos.y-500)						
 				var tween: Tween = create_tween()
 				tween.tween_property(building_inst, "position", tile_center_pos, 0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)				
@@ -376,7 +376,7 @@ func spawn_stadiums():
 				add_child(stadium_inst)	
 				stadium_inst.add_to_group("stadiums")	
 				stadium_inst.z_index = tile_pos.x + tile_pos.y
-				stadium_inst.get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))		
+				#stadium_inst.get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))		
 				stadium_inst.position = Vector2(tile_center_pos.x, tile_center_pos.y-500)						
 				var tween: Tween = create_tween()
 				tween.tween_property(stadium_inst, "position", tile_center_pos, 0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)				
@@ -403,7 +403,7 @@ func spawn_districts():
 				add_child(district_inst)
 				district_inst.add_to_group("districts")		
 				district_inst.z_index = tile_pos.x + tile_pos.y				
-				district_inst.get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))		
+				#district_inst.get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))		
 				district_inst.position = Vector2(tile_center_pos.x, tile_center_pos.y-500)						
 				var tween: Tween = create_tween()
 				tween.tween_property(district_inst, "position", tile_center_pos, 0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)				
@@ -435,7 +435,7 @@ func spawn_towers_final():
 		add_child(tower_inst)	
 		tower_inst.add_to_group("towers")	
 		tower_inst.z_index = tile_pos.x + tile_pos.y
-		tower_inst.get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))		
+		#tower_inst.get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))		
 		Map.set_cell(0, tile_pos, 9, Vector2i(0, 0), 0)
 		progresscount += 1						
 		#await get_tree().create_timer(0).timeout				
