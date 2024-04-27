@@ -69,10 +69,10 @@ func draw_laser():
 	for i in 8:
 		line_2d.set_antialiased(false)
 		line_2d.set_width(1)	
-		line_2d.set_default_color(Color.WEB_GREEN)	
+		line_2d.set_default_color(Color.WHITE_SMOKE)	
 		await get_tree().create_timer(0.05).timeout
 		line_2d.set_width(2)
-		line_2d.set_default_color(Color.DARK_GREEN)
+		line_2d.set_default_color(Color.RED)
 		for j in $"..".structures.size():
 			if laser_pos == $"..".structures[j].position:	
 				var tween: Tween = create_tween()
