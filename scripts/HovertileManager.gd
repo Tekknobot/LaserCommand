@@ -66,7 +66,7 @@ func _unhandled_input(event):
 						pass
 					else:
 						get_node("/root/Scene2D").structures[random].get_child(0).play("default")
-						get_node("/root/Scene2D").structures[random].get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))	
+						#get_node("/root/Scene2D").structures[random].get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))	
 						get_node("/root/Scene2D").structures[random].demolished = false	
 						get_node("/root/Scene2D/Laser").demolished_structures -= 1
 					await get_tree().create_timer(0.05).timeout
