@@ -62,13 +62,15 @@ func SetLinePoints(a: Vector2, b: Vector2):
 	var seeker_position = get_node("../TileMap").map_to_local(_a) + Vector2(0,0) / 2
 	seeker_instance.set_name("seeker")
 	get_parent().add_child(seeker_instance)	
+
+	$"../SoundStream".stream = $"../SoundStream".map_sfx[7]
+	$"../SoundStream".play()	
 	
 	seeker_instance.position = a
 	seeker_instance.z_index = seeker_instance.position.x + seeker_instance.position.y
 	var tween: Tween = create_tween()
 	tween.tween_property(seeker_instance, "position", b, 4).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)	
-	await get_tree().create_timer(4).timeout	
-	
+	await get_tree().create_timer(4).timeout		
 
 	var explosion = preload("res://scenes/vfx/explosion.scn")
 	var explosion_instance = explosion.instantiate()

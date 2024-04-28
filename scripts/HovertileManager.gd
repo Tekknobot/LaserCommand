@@ -16,32 +16,35 @@ func _ready():
 func _process(delta):
 	$"../Control/Time".text = "Time: " + str(floor($"../LevelTimer".time_left))
 
+	if $"../LevelTimer".time_left <= 100:
+		$"../LaserTimer".wait_time = 3
+
 	if $"../LevelTimer".time_left <= 90:
-		$"../LaserTimer".wait_time = 2.5
+		$"../LaserTimer".wait_time = 3
 			
 	if $"../LevelTimer".time_left <= 80:
-		$"../LaserTimer".wait_time = 2
+		$"../LaserTimer".wait_time = 2.5
 
 	if $"../LevelTimer".time_left <= 70:
-		$"../LaserTimer".wait_time = 1.7
+		$"../LaserTimer".wait_time = 2.5
 
 	if $"../LevelTimer".time_left <= 60:
-		$"../LaserTimer".wait_time = 1.6
+		$"../LaserTimer".wait_time = 2.0
 		
 	if $"../LevelTimer".time_left <= 50:
-		$"../LaserTimer".wait_time = 1.5	
+		$"../LaserTimer".wait_time = 2.0	
 		
 	if $"../LevelTimer".time_left <= 40:
-		$"../LaserTimer".wait_time = 1.4			
+		$"../LaserTimer".wait_time = 1.5			
 
 	if $"../LevelTimer".time_left <= 30:
-		$"../LaserTimer".wait_time = 1.3	
+		$"../LaserTimer".wait_time = 1.4	
 		
 	if $"../LevelTimer".time_left <= 20:
-		$"../LaserTimer".wait_time = 1.2	
+		$"../LaserTimer".wait_time = 1.3	
 
 	if $"../LevelTimer".time_left <= 10:
-		$"../LaserTimer".wait_time = 1.1	
+		$"../LaserTimer".wait_time = 1.2	
 		
 	if $"../LevelTimer".time_left <= 5:
 		$"../LaserTimer".wait_time = 1.1			
@@ -73,7 +76,7 @@ func _unhandled_input(event):
 			
 			structure_saves = 0	
 			get_node("../Control").get_child(0).text = "Intercepts " + str(structure_saves)						
-			get_node("../Control").get_child(1).text = "Demolished " + str(get_node("/root/Scene2D/Laser").demolished_structures) + " of " + str($"..".structures.size() / 3)
+			get_node("../Control").get_child(1).text = "Demolished " + str(get_node("/root/Scene2D/Laser").demolished_structures) + " of " + str($"..".structures.size() / 4)
 						
 func _on_timer_timeout():
 	if stop_laser == false:
