@@ -1,13 +1,6 @@
 res://scenes/scene_2d.scn
+res://shaders/gameboy.gdshader
+res://scripts/SaveLoadManager.gd
 res://scripts/LaserManager.gd
 res://scripts/HovertileManager.gd
-res://scenes/vfx/blood.scn
-res://scripts/StructureManager.gd
-res://scripts/CityLaserManager.gd
-res://scripts/ProjectileManager.gd
-res://scripts/CameraManager.gd
-res://scripts/MapMusicStreamManager.gd
 res://scripts/Scene2DManager.gd
-res://shaders/gameboy.gdshader
-res://scenes/building.scn
-res://scenes/projectiles/projectile.scn

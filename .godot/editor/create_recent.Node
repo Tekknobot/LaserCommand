@@ -1,5 +1,8 @@
+RichTextLabel
+Button
+HBoxContainer
+Node2D
 ColorRect
 ProgressBar
 Area2D
 Timer
-RichTextLabel

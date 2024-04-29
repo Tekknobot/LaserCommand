@@ -10,8 +10,31 @@ var stop_laser = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	if get_node("../SaveLoad").load_score() == 0:
+		$"../Control/SkinButtons/Button_1".show()
+			
+	if get_node("../SaveLoad").load_score() == 1:
+		$"../Control/SkinButtons/Button_1".show()
+		$"../Control/SkinButtons/Button_2".show()
 
+	if get_node("../SaveLoad").load_score() == 2:
+		$"../Control/SkinButtons/Button_1".show()
+		$"../Control/SkinButtons/Button_2".show()		
+		$"../Control/SkinButtons/Button_3".show()
+
+	if get_node("../SaveLoad").load_score() == 3:
+		$"../Control/SkinButtons/Button_1".show()
+		$"../Control/SkinButtons/Button_2".show()		
+		$"../Control/SkinButtons/Button_3".show()
+		$"../Control/SkinButtons/Button_4".show()
+
+	if get_node("../SaveLoad").load_score() == 4:
+		$"../Control/SkinButtons/Button_1".show()
+		$"../Control/SkinButtons/Button_2".show()		
+		$"../Control/SkinButtons/Button_3".show()
+		$"../Control/SkinButtons/Button_4".show()	
+		$"../Control/SkinButtons/Button_5".show()	
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$"../Control/Time".text = "Time: " + str(floor($"../LevelTimer".time_left))
@@ -92,3 +115,33 @@ func _on_level_timer_timeout():
 	
 	$"../SoundStream".stream = $"../SoundStream".map_sfx[10]
 	$"../SoundStream".play()		
+
+func _on_button_1_pressed():
+	$"../ShaderRect".material.set("shader_parameter/lightest",Color(0.608, 0.737, 0.059))
+	$"../ShaderRect".material.set("shader_parameter/light",Color(0.545, 0.675, 0.059))
+	$"../ShaderRect".material.set("shader_parameter/dark",Color(0.188, 0.384, 0.188))
+	$"../ShaderRect".material.set("shader_parameter/darkest",Color(0.059, 0.22, 0.059))
+
+func _on_button_2_pressed():
+	$"../ShaderRect".material.set("shader_parameter/lightest",Color(0.678, 0.69, 0.718))
+	$"../ShaderRect".material.set("shader_parameter/light",Color(0.533, 0.549, 0.588))
+	$"../ShaderRect".material.set("shader_parameter/dark",Color(0.357, 0.376, 0.439))
+	$"../ShaderRect".material.set("shader_parameter/darkest",Color(0.208, 0.231, 0.31))
+
+func _on_button_3_pressed():
+	$"../ShaderRect".material.set("shader_parameter/lightest",Color(0.957, 0.612, 0.733))
+	$"../ShaderRect".material.set("shader_parameter/light",Color(0.949, 0.416, 0.553))
+	$"../ShaderRect".material.set("shader_parameter/dark",Color(0.867, 0.176, 0.29))
+	$"../ShaderRect".material.set("shader_parameter/darkest",Color(0.533, 0.051, 0.118))
+
+func _on_button_4_pressed():
+	$"../ShaderRect".material.set("shader_parameter/lightest",Color(1, 0.988, 0.949))
+	$"../ShaderRect".material.set("shader_parameter/light",Color(0.8, 0.773, 0.725))
+	$"../ShaderRect".material.set("shader_parameter/dark",Color(0.251, 0.239, 0.224))
+	$"../ShaderRect".material.set("shader_parameter/darkest",Color(0.145, 0.141, 0.133))
+	
+func _on_button_5_pressed():
+	$"../ShaderRect".material.set("shader_parameter/lightest",Color(0.988, 0.749, 0.286))
+	$"../ShaderRect".material.set("shader_parameter/light",Color(0.969, 0.498, 0))
+	$"../ShaderRect".material.set("shader_parameter/dark",Color(0.839, 0.157, 0.157))
+	$"../ShaderRect".material.set("shader_parameter/darkest",Color(0, 0.188, 0.286))	
