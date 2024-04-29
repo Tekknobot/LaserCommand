@@ -48,6 +48,9 @@ func _process(delta):
 		
 	if $"../LevelTimer".time_left <= 5:
 		$"../LaserTimer".wait_time = 1.1			
+	
+	$"../Control/Boss".text = "BOSS " + str($"../Control/BossBar".value)
+	
 				
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
