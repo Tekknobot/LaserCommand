@@ -1,6 +1,6 @@
 extends Node2D
 
-var save_path = "user://score.save"
+var save_path = "res://score.save"
 var highscore = 0
 
 # Called when the node enters the scene tree for the first time.
