@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Laser Command"
-run/main_scene="res://scenes/scene_2d.scn"
+run/main_scene="res://scenes/title_2d.scn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://assets/splash/splash.png"

@@ -4,3 +4,5 @@ res://scripts/SaveLoadManager.gd
 res://scripts/LaserManager.gd
 res://scripts/HovertileManager.gd
 res://scripts/Scene2DManager.gd
+res://scenes/title_2d.scn
+res://scripts/TitleManager.gd

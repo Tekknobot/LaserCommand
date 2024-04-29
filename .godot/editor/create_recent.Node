@@ -1,5 +1,6 @@
-RichTextLabel
+TextureRect
 Button
+RichTextLabel
 HBoxContainer
 Node2D
 ColorRect
