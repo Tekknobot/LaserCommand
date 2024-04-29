@@ -112,15 +112,15 @@ func draw_laser():
 			$"../LevelTimer".paused = true	
 			$"../Hovertile".stop_laser = true	
 
-	#Boss loses			
+	#Boss loss	
 	if $"../Control/BossBar".value <= 0:
 		$"../Control/CLEARED".show()
-		$"../LevelTimer".stop()	
+		$"../LevelTimer".paused = true	
 		$"../MapMusicStream".playing = true	
 		get_node("../Hovertile").stop_laser = true	
 		gameover = true
 		wins += 1
-		if wins >= 4:
+		if wins >= 5:
 			return
 		else:	
 			get_node("../SaveLoad").save_score(wins)
