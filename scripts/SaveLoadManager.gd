@@ -18,7 +18,7 @@ func save_score(highscore):
 	
 func load_score():
 	if FileAccess.file_exists(save_path):
-		print("file found")
+		#print("file found")
 		var file = FileAccess.open(save_path, FileAccess.READ)
 		highscore = file.get_var()
 	else:
