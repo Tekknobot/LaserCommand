@@ -30,13 +30,14 @@ var demolished_structures = 0
 var gameover = false
 
 var wins = 0
+var t = 0.0
 
 func _ready():
 	laser_a = Vector2(0,-500)
 	wins = get_node("../SaveLoad").load_score()
 
-func _process(_delta):
-	pass
+func _physics_process(delta):
+	t += delta * 0.4
 
 func draw_laser():
 	laser_can = true
@@ -55,6 +56,7 @@ func draw_laser():
 	line_2d.set_joint_mode(2)
 	var curve := Curve2D.new()
 	var emitter = Vector2(0,-500)
+	
 	curve.add_point(emitter, Vector2.ZERO, Vector2(0,0))
 	curve.add_point(Vector2(laser_pos.x, laser_pos.y-8), Vector2(0,0), Vector2.ZERO)
 	line_2d.points = curve.get_baked_points()
