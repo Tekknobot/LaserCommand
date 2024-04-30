@@ -43,11 +43,6 @@ func draw_laser():
 	laser_on = true
 	$"../SoundStream".stream = $"../SoundStream".map_sfx[3]
 	$"../SoundStream".play()	
-							
-	##Remove hover tiles										
-	#for j in node2D.grid_height:
-		#for k in node2D.grid_width:
-			#get_node("../TileMap").set_cell(1, Vector2i(j,k), -1, Vector2i(0, 0), 0)
 
 	var my_random_x = rng.randi_range(1, 14)
 	var my_random_y = rng.randi_range(1, 14)

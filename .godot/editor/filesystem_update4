@@ -3,3 +3,6 @@ res://shaders/gameboy.gdshader
 res://scenes/scene_2d.scn
 res://scripts/SaveLoadManager.gd
 res://scripts/HovertileManager.gd
+res://default_bus_layout.tres
+res://scenes/vfx/explosion.scn
+res://scripts/LaserManager.gd
