@@ -135,10 +135,10 @@ func _on_button_3_pressed():
 	$"../ShaderRect".material.set("shader_parameter/darkest",Color(0.533, 0.051, 0.118))
 
 func _on_button_4_pressed():
-	$"../ShaderRect".material.set("shader_parameter/lightest",Color(1, 0.988, 0.949))
-	$"../ShaderRect".material.set("shader_parameter/light",Color(0.8, 0.773, 0.725))
-	$"../ShaderRect".material.set("shader_parameter/dark",Color(0.251, 0.239, 0.224))
-	$"../ShaderRect".material.set("shader_parameter/darkest",Color(0.145, 0.141, 0.133))
+	$"../ShaderRect".material.set("shader_parameter/lightest",Color(0.937, 0.137, 0.235))
+	$"../ShaderRect".material.set("shader_parameter/light",Color(0.929, 0.949, 0.957))
+	$"../ShaderRect".material.set("shader_parameter/dark",Color(0.553, 0.6, 0.682))
+	$"../ShaderRect".material.set("shader_parameter/darkest",Color(0.169, 0.176, 0.259))
 	
 func _on_button_5_pressed():
 	$"../ShaderRect".material.set("shader_parameter/lightest",Color(0.988, 0.749, 0.286))
