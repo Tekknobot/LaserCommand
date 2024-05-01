@@ -12,22 +12,22 @@ var stop_laser = false
 func _ready():
 	if get_node("../SaveLoad").load_score() == 0:
 		$"../Control/SkinButtons/Button_1".show()
-		$"../Control/BossBar".max_value = 35
-		$"../Control/BossBar".value = 35
+		$"../Control/BossBar".max_value = 45
+		$"../Control/BossBar".value = 45
 			
 	if get_node("../SaveLoad").load_score() == 1:
 		$"../Control/SkinButtons/Button_1".show()
 		$"../Control/SkinButtons/Button_2".show()
-		$"../Control/BossBar".max_value = 40
-		$"../Control/BossBar".value = 40		
+		$"../Control/BossBar".max_value = 55
+		$"../Control/BossBar".value = 55		
 		$"../Control/SkinButtons/Button_0".show()
 
 	if get_node("../SaveLoad").load_score() == 2:
 		$"../Control/SkinButtons/Button_1".show()
 		$"../Control/SkinButtons/Button_2".show()		
 		$"../Control/SkinButtons/Button_3".show()
-		$"../Control/BossBar".max_value = 50
-		$"../Control/BossBar".value = 50
+		$"../Control/BossBar".max_value = 65
+		$"../Control/BossBar".value = 65
 		$"../Control/SkinButtons/Button_0".show()
 		
 	if get_node("../SaveLoad").load_score() == 3:
@@ -35,8 +35,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_2".show()		
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()
-		$"../Control/BossBar".max_value = 60
-		$"../Control/BossBar".value = 60
+		$"../Control/BossBar".max_value = 75
+		$"../Control/BossBar".value = 75
 		$"../Control/SkinButtons/Button_0".show()
 
 	if get_node("../SaveLoad").load_score() == 4:
@@ -45,8 +45,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 80
-		$"../Control/BossBar".value = 80	
+		$"../Control/BossBar".max_value = 85
+		$"../Control/BossBar".value = 85	
 		$"../Control/SkinButtons/Button_0".show()		
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
