@@ -21,6 +21,7 @@ func _ready():
 		$"../Control/BossBar".max_value = 55
 		$"../Control/BossBar".value = 55		
 		$"../Control/SkinButtons/Button_0".show()
+		_on_button_2_pressed()
 
 	if get_node("../SaveLoad").load_score() == 2:
 		$"../Control/SkinButtons/Button_1".show()
@@ -29,6 +30,7 @@ func _ready():
 		$"../Control/BossBar".max_value = 65
 		$"../Control/BossBar".value = 65
 		$"../Control/SkinButtons/Button_0".show()
+		_on_button_3_pressed()
 		
 	if get_node("../SaveLoad").load_score() == 3:
 		$"../Control/SkinButtons/Button_1".show()
@@ -38,6 +40,7 @@ func _ready():
 		$"../Control/BossBar".max_value = 75
 		$"../Control/BossBar".value = 75
 		$"../Control/SkinButtons/Button_0".show()
+		_on_button_4_pressed()
 
 	if get_node("../SaveLoad").load_score() == 4:
 		$"../Control/SkinButtons/Button_1".show()
@@ -47,7 +50,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_5".show()
 		$"../Control/BossBar".max_value = 85
 		$"../Control/BossBar".value = 85	
-		$"../Control/SkinButtons/Button_0".show()		
+		$"../Control/SkinButtons/Button_0".show()	
+		_on_button_5_pressed()	
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
