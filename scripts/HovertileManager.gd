@@ -20,6 +20,7 @@ func _ready():
 		$"../Control/SkinButtons/Button_2".show()
 		$"../Control/BossBar".max_value = 40
 		$"../Control/BossBar".value = 40		
+		$"../Control/SkinButtons/Button_0".show()
 
 	if get_node("../SaveLoad").load_score() == 2:
 		$"../Control/SkinButtons/Button_1".show()
@@ -27,6 +28,7 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/BossBar".max_value = 50
 		$"../Control/BossBar".value = 50
+		$"../Control/SkinButtons/Button_0".show()
 		
 	if get_node("../SaveLoad").load_score() == 3:
 		$"../Control/SkinButtons/Button_1".show()
@@ -35,6 +37,7 @@ func _ready():
 		$"../Control/SkinButtons/Button_4".show()
 		$"../Control/BossBar".max_value = 60
 		$"../Control/BossBar".value = 60
+		$"../Control/SkinButtons/Button_0".show()
 
 	if get_node("../SaveLoad").load_score() == 4:
 		$"../Control/SkinButtons/Button_1".show()
@@ -43,7 +46,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
 		$"../Control/BossBar".max_value = 80
-		$"../Control/BossBar".value = 80			
+		$"../Control/BossBar".value = 80	
+		$"../Control/SkinButtons/Button_0".show()		
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -155,3 +159,10 @@ func _on_button_5_pressed():
 	$"../ShaderRect".material.set("shader_parameter/light",Color(0.969, 0.498, 0))
 	$"../ShaderRect".material.set("shader_parameter/dark",Color(0.839, 0.157, 0.157))
 	$"../ShaderRect".material.set("shader_parameter/darkest",Color(0, 0.188, 0.286))	
+
+#Random skin
+func _on_button_0_pressed():
+	$"../ShaderRect".material.set("shader_parameter/lightest",Color(rng.randf_range(0.8, 0.9), rng.randf_range(0.8, 0.9), rng.randf_range(0.8, 0.9)))
+	$"../ShaderRect".material.set("shader_parameter/light",Color(rng.randf_range(0.4, 0.8), rng.randf_range(0.4, 0.8), rng.randf_range(0.4, 0.8)))
+	$"../ShaderRect".material.set("shader_parameter/dark",Color(rng.randf_range(0.2, 0.4), rng.randf_range(0.2, 0.4), rng.randf_range(0.2, 0.4)))
+	$"../ShaderRect".material.set("shader_parameter/darkest",Color(rng.randf_range(0.1, 0.2), rng.randf_range(0.1, 0.2), rng.randf_range(0.1, 0.2)))
