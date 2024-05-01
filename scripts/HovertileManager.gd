@@ -12,14 +12,14 @@ var stop_laser = false
 func _ready():
 	if get_node("../SaveLoad").load_score() == 0:
 		$"../Control/SkinButtons/Button_1".show()
-		$"../Control/BossBar".max_value = 45
-		$"../Control/BossBar".value = 45
+		$"../Control/BossBar".max_value = 60
+		$"../Control/BossBar".value = 60
 			
 	if get_node("../SaveLoad").load_score() == 1:
 		$"../Control/SkinButtons/Button_1".show()
 		$"../Control/SkinButtons/Button_2".show()
-		$"../Control/BossBar".max_value = 55
-		$"../Control/BossBar".value = 55		
+		$"../Control/BossBar".max_value = 70
+		$"../Control/BossBar".value = 70		
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_2_pressed()
 
@@ -27,8 +27,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_1".show()
 		$"../Control/SkinButtons/Button_2".show()		
 		$"../Control/SkinButtons/Button_3".show()
-		$"../Control/BossBar".max_value = 65
-		$"../Control/BossBar".value = 65
+		$"../Control/BossBar".max_value = 80
+		$"../Control/BossBar".value = 80
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_3_pressed()
 		
@@ -37,8 +37,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_2".show()		
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()
-		$"../Control/BossBar".max_value = 75
-		$"../Control/BossBar".value = 75
+		$"../Control/BossBar".max_value = 90
+		$"../Control/BossBar".value = 90
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_4_pressed()
 
@@ -48,8 +48,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 85
-		$"../Control/BossBar".value = 85	
+		$"../Control/BossBar".max_value = 100
+		$"../Control/BossBar".value = 100	
 		$"../Control/SkinButtons/Button_0".show()	
 		_on_button_5_pressed()	
 		

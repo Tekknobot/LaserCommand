@@ -2,3 +2,4 @@ res://scenes/title_2d.scn
 res://shaders/gameboy.gdshader
 res://scenes/scene_2d.scn
 res://scripts/HovertileManager.gd
+res://scripts/LaserManager.gd

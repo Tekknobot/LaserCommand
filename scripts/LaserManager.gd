@@ -56,9 +56,10 @@ func draw_laser():
 	line_2d.set_joint_mode(2)
 	var curve := Curve2D.new()
 	var emitter = Vector2(0,-500)
+	var end_point = Vector2(laser_pos.x, laser_pos.y-8)
 	
 	curve.add_point(emitter, Vector2.ZERO, Vector2(0,0))
-	curve.add_point(Vector2(laser_pos.x, laser_pos.y-8), Vector2(0,0), Vector2.ZERO)
+	curve.add_point(end_point, Vector2(0,0), Vector2.ZERO)
 	line_2d.points = curve.get_baked_points()
 
 	var blood_instance = blood.instantiate()
