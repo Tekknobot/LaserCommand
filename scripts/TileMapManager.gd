@@ -1794,9 +1794,6 @@ func SetLinePoints(a: Vector2, b: Vector2):
 		for k in grid_width:
 			set_cell(1, Vector2i(j,k), -1, Vector2i(0, 0), 0)	
 
-func _on_next_button_pressed():
-	get_tree().reload_current_scene()
-
 func _on_laser_button_pressed():
 	show_laser_range()	
 

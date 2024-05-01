@@ -7,3 +7,4 @@ res://default_bus_layout.tres
 res://scenes/vfx/explosion.scn
 res://scripts/LaserManager.gd
 res://scripts/Scene2DManager.gd
+res://scripts/TileMapManager.gd

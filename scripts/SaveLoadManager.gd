@@ -26,3 +26,7 @@ func load_score():
 		highscore = 0	
 		
 	return highscore			
+
+
+func _on_next_button_pressed():
+	get_tree().reload_current_scene()

@@ -521,6 +521,7 @@ func select_biome():
 		generate_world()
 												
 func _on_reset_button_pressed():
+	$SaveLoad.save_score(0)
 	get_tree().reload_current_scene()
 	
 	
