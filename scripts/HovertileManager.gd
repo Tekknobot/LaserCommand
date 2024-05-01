@@ -166,7 +166,7 @@ func _on_button_5_pressed():
 
 #Random skin
 func _on_button_0_pressed():
-	$"../ShaderRect".material.set("shader_parameter/lightest",Color(rng.randf_range(0.8, 0.9), rng.randf_range(0.8, 0.9), rng.randf_range(0.8, 0.9)))
-	$"../ShaderRect".material.set("shader_parameter/light",Color(rng.randf_range(0.4, 0.8), rng.randf_range(0.4, 0.8), rng.randf_range(0.4, 0.8)))
-	$"../ShaderRect".material.set("shader_parameter/dark",Color(rng.randf_range(0.2, 0.4), rng.randf_range(0.2, 0.4), rng.randf_range(0.2, 0.4)))
-	$"../ShaderRect".material.set("shader_parameter/darkest",Color(rng.randf_range(0.1, 0.2), rng.randf_range(0.1, 0.2), rng.randf_range(0.1, 0.2)))
+	$"../ShaderRect".material.set("shader_parameter/lightest",Color(rng.randf_range(0.80, 0.90), rng.randf_range(0.80, 0.90), rng.randf_range(0.8, 0.9)))
+	$"../ShaderRect".material.set("shader_parameter/light",Color(rng.randf_range(0.40, 0.80), rng.randf_range(0.40, 0.80), rng.randf_range(0.4, 0.8)))
+	$"../ShaderRect".material.set("shader_parameter/dark",Color(rng.randf_range(0.20, 0.40), rng.randf_range(0.20, 0.40), rng.randf_range(0.2, 0.4)))
+	$"../ShaderRect".material.set("shader_parameter/darkest",Color(rng.randf_range(0.10, 0.20), rng.randf_range(0.10, 0.20), rng.randf_range(0.1, 0.2)))
