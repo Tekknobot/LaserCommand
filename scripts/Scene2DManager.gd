@@ -522,6 +522,6 @@ func select_biome():
 												
 func _on_reset_button_pressed():
 	$SaveLoad.save_score(0)
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://scenes/title_2d.scn")
 	
 	
