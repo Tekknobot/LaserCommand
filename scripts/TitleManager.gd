@@ -10,6 +10,10 @@ func _ready():
 func _process(delta):
 	pass
 
-
+func _input(event):
+	if event is InputEventKey:	
+		if event.pressed and event.keycode == KEY_ESCAPE:
+			get_tree().quit()
+			
 func _on_start_pressed():
 	get_tree().change_scene_to_file("res://scenes/scene_2d.scn")

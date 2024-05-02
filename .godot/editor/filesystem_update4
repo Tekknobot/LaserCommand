@@ -4,3 +4,4 @@ res://scenes/scene_2d.scn
 res://scripts/HovertileManager.gd
 res://scripts/LaserManager.gd
 res://scripts/StructureManager.gd
+res://scripts/TitleManager.gd
