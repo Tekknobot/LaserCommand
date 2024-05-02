@@ -49,13 +49,27 @@ func _unhandled_input(event):
 				
 				get_node("../Hovertile").structure_saves += 1	
 				get_node("../Control").get_child(0).text = "Intercepts " + str(get_node("../Hovertile").structure_saves)	
+										
 				return
 					
 		if event.button_index == MOUSE_BUTTON_LEFT and get_node("../Laser").gameover == false and demolished == false:		
 			if event.pressed and tile_pos == unit_pos and middle == false:
 				middle = true
 				var tile_position = get_node("../TileMap").map_to_local(tile_pos) + Vector2(0,0) / 2
-				await SetLinePoints(tile_position, get_node("../Drone").position)			
+				
+				if get_node("../Control/Power").text == "Power Full":
+					return			
+				elif get_node("../Hovertile").shots >= 19 and get_node("../Hovertile").barrage == false:
+					get_node("../Hovertile").x = 0				
+					get_node("../Hovertile").shots = 0
+					get_node("../Control/Power").text = "Power Full"
+					get_node("../Hovertile").barrage = true
+				elif get_node("../Hovertile").shots <= 19:
+					get_node("../Hovertile").shots += 1	
+					get_node("../Control/Power").text = "Power " + (str(get_node("../Hovertile").shots) + " of 20")		
+													
+				await SetLinePoints(tile_position, get_node("../Drone").position)
+						
 				
 func SetLinePoints(a: Vector2, b: Vector2):
 	var _a = get_node("../TileMap").local_to_map(a)
