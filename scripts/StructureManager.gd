@@ -57,7 +57,7 @@ func _unhandled_input(event):
 				middle = true
 				var tile_position = get_node("../TileMap").map_to_local(tile_pos) + Vector2(0,0) / 2
 				
-				if get_node("../Control/Power").text == "Power Full":
+				if get_node("../Control/Power").text == "Power Full":									
 					return			
 				elif get_node("../Hovertile").shots >= 19 and get_node("../Hovertile").barrage == false:
 					get_node("../Hovertile").x = 0				
