@@ -7,19 +7,21 @@ var demolihed_count = 0
 var demolished_structures = 0
 
 var stop_laser = false
+var x = 0
+var barrage = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if get_node("../SaveLoad").load_score() == 0:
 		$"../Control/SkinButtons/Button_1".show()
-		$"../Control/BossBar".max_value = 60
-		$"../Control/BossBar".value = 60
+		$"../Control/BossBar".max_value = 100
+		$"../Control/BossBar".value = 100
 			
 	if get_node("../SaveLoad").load_score() == 1:
 		$"../Control/SkinButtons/Button_1".show()
 		$"../Control/SkinButtons/Button_2".show()
-		$"../Control/BossBar".max_value = 70
-		$"../Control/BossBar".value = 70		
+		$"../Control/BossBar".max_value = 110
+		$"../Control/BossBar".value = 110		
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_2_pressed()
 
@@ -27,8 +29,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_1".show()
 		$"../Control/SkinButtons/Button_2".show()		
 		$"../Control/SkinButtons/Button_3".show()
-		$"../Control/BossBar".max_value = 80
-		$"../Control/BossBar".value = 80
+		$"../Control/BossBar".max_value = 120
+		$"../Control/BossBar".value = 120
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_3_pressed()
 		
@@ -37,8 +39,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_2".show()		
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()
-		$"../Control/BossBar".max_value = 90
-		$"../Control/BossBar".value = 90
+		$"../Control/BossBar".max_value = 130
+		$"../Control/BossBar".value = 130
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_4_pressed()
 
@@ -48,8 +50,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 100
-		$"../Control/BossBar".value = 100	
+		$"../Control/BossBar".max_value = 140
+		$"../Control/BossBar".value = 140	
 		$"../Control/SkinButtons/Button_0".show()	
 		_on_button_5_pressed()	
 		
@@ -91,8 +93,7 @@ func _process(delta):
 		$"../LaserTimer".wait_time = 1.1			
 	
 	$"../Control/Boss".text = "BOSS " + str($"../Control/BossBar".value)
-	
-				
+					
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -121,6 +122,15 @@ func _unhandled_input(event):
 			structure_saves = 0	
 			get_node("../Control").get_child(0).text = "Intercepts " + str(structure_saves)						
 			get_node("../Control").get_child(1).text = "Demolished " + str(get_node("/root/Scene2D/Laser").demolished_structures) + " of " + str($"..".structures.size() / 4)
+
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and get_node("../Laser").gameover == false:	
+			if x >= get_node("/root/Scene2D").structures.size():
+				return				
+			if event.pressed and get_node("/root/Scene2D").structures[x].demolished == false:		
+				var tile_position = get_node("../TileMap").map_to_local(get_node("/root/Scene2D").structures[x].coord) + Vector2(0,0) / 2	
+				get_node("/root/Scene2D").structures[x].SetLinePoints(tile_position, get_node("../Drone").position)
+
+			x += 1
 						
 func _on_timer_timeout():
 	if stop_laser == false:

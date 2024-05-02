@@ -14,6 +14,9 @@ var unit_pos
 var demolished = false
 var structure_saves = 0
 var middle = false
+var x = 0
+var shots = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -52,7 +55,7 @@ func _unhandled_input(event):
 			if event.pressed and tile_pos == unit_pos and middle == false:
 				middle = true
 				var tile_position = get_node("../TileMap").map_to_local(tile_pos) + Vector2(0,0) / 2
-				await SetLinePoints(tile_position, get_node("../Drone").position)
+				await SetLinePoints(tile_position, get_node("../Drone").position)			
 				
 func SetLinePoints(a: Vector2, b: Vector2):
 	var _a = get_node("../TileMap").local_to_map(a)
