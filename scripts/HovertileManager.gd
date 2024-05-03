@@ -15,14 +15,14 @@ var shots = 0
 func _ready():
 	if get_node("../SaveLoad").load_score() == 0:
 		$"../Control/SkinButtons/Button_1".show()
-		$"../Control/BossBar".max_value = 100
-		$"../Control/BossBar".value = 100
+		$"../Control/BossBar".max_value = 110
+		$"../Control/BossBar".value = 110
 			
 	if get_node("../SaveLoad").load_score() == 1:
 		$"../Control/SkinButtons/Button_1".show()
 		$"../Control/SkinButtons/Button_2".show()
-		$"../Control/BossBar".max_value = 110
-		$"../Control/BossBar".value = 110		
+		$"../Control/BossBar".max_value = 120
+		$"../Control/BossBar".value = 120		
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_2_pressed()
 
@@ -30,8 +30,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_1".show()
 		$"../Control/SkinButtons/Button_2".show()		
 		$"../Control/SkinButtons/Button_3".show()
-		$"../Control/BossBar".max_value = 120
-		$"../Control/BossBar".value = 120
+		$"../Control/BossBar".max_value = 130
+		$"../Control/BossBar".value = 130
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_3_pressed()
 		
@@ -40,8 +40,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_2".show()		
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()
-		$"../Control/BossBar".max_value = 130
-		$"../Control/BossBar".value = 130
+		$"../Control/BossBar".max_value = 140
+		$"../Control/BossBar".value = 140
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_4_pressed()
 
@@ -51,8 +51,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 140
-		$"../Control/BossBar".value = 140	
+		$"../Control/BossBar".max_value = 150
+		$"../Control/BossBar".value = 150	
 		$"../Control/SkinButtons/Button_0".show()	
 		_on_button_5_pressed()	
 		
@@ -183,3 +183,6 @@ func _on_button_0_pressed():
 	$"../ShaderRect".material.set("shader_parameter/light",Color(rng.randf_range(0.40, 0.80), rng.randf_range(0.40, 0.80), rng.randf_range(0.4, 0.8)))
 	$"../ShaderRect".material.set("shader_parameter/dark",Color(rng.randf_range(0.20, 0.40), rng.randf_range(0.20, 0.40), rng.randf_range(0.2, 0.4)))
 	$"../ShaderRect".material.set("shader_parameter/darkest",Color(rng.randf_range(0.10, 0.20), rng.randf_range(0.10, 0.20), rng.randf_range(0.1, 0.2)))
+
+func _on_menu_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/title_2d.scn")
