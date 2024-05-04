@@ -118,7 +118,7 @@ func draw_laser():
 		get_node("../Hovertile").stop_laser = true	
 		gameover = true
 		wins += 1
-		if wins >= 5:
+		if wins >= 11:
 			return
 		else:	
 			get_node("../SaveLoad").save_score(wins)
@@ -205,7 +205,7 @@ func intercepted_laser():
 		get_node("../Hovertile").stop_laser = true	
 		gameover = true
 		wins += 1
-		if wins >= 5:
+		if wins >= 11:
 			return
 		else:	
 			get_node("../SaveLoad").save_score(wins)

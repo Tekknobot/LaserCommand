@@ -15,14 +15,14 @@ var shots = 0
 func _ready():
 	if get_node("../SaveLoad").load_score() == 0:
 		$"../Control/SkinButtons/Button_1".show()
-		$"../Control/BossBar".max_value = 140
-		$"../Control/BossBar".value = 140
+		$"../Control/BossBar".max_value = 150
+		$"../Control/BossBar".value = 150
 			
 	if get_node("../SaveLoad").load_score() == 1:
 		$"../Control/SkinButtons/Button_1".show()
 		$"../Control/SkinButtons/Button_2".show()
-		$"../Control/BossBar".max_value = 150
-		$"../Control/BossBar".value = 150		
+		$"../Control/BossBar".max_value = 170
+		$"../Control/BossBar".value = 170		
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_2_pressed()
 
@@ -30,8 +30,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_1".show()
 		$"../Control/SkinButtons/Button_2".show()		
 		$"../Control/SkinButtons/Button_3".show()
-		$"../Control/BossBar".max_value = 160
-		$"../Control/BossBar".value = 160
+		$"../Control/BossBar".max_value = 190
+		$"../Control/BossBar".value = 190
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_3_pressed()
 		
@@ -40,8 +40,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_2".show()		
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()
-		$"../Control/BossBar".max_value = 170
-		$"../Control/BossBar".value = 170
+		$"../Control/BossBar".max_value = 210
+		$"../Control/BossBar".value = 210
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_4_pressed()
 
@@ -51,46 +51,112 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 180
-		$"../Control/BossBar".value = 180	
+		$"../Control/BossBar".max_value = 230
+		$"../Control/BossBar".value = 230	
 		$"../Control/SkinButtons/Button_0".show()	
 		_on_button_5_pressed()	
+
+	if get_node("../SaveLoad").load_score() == 5:
+		$"../Control/SkinButtons/Button_1".show()
+		$"../Control/SkinButtons/Button_2".show()		
+		$"../Control/SkinButtons/Button_3".show()
+		$"../Control/SkinButtons/Button_4".show()	
+		$"../Control/SkinButtons/Button_5".show()
+		$"../Control/BossBar".max_value = 250
+		$"../Control/BossBar".value = 250	
+		$"../Control/SkinButtons/Button_0".show()
+		_on_button_0_pressed()
+
+	if get_node("../SaveLoad").load_score() == 6:
+		$"../Control/SkinButtons/Button_1".show()
+		$"../Control/SkinButtons/Button_2".show()		
+		$"../Control/SkinButtons/Button_3".show()
+		$"../Control/SkinButtons/Button_4".show()	
+		$"../Control/SkinButtons/Button_5".show()
+		$"../Control/BossBar".max_value = 270
+		$"../Control/BossBar".value = 270	
+		$"../Control/SkinButtons/Button_0".show()
+		_on_button_0_pressed()
 		
+	if get_node("../SaveLoad").load_score() == 7:
+		$"../Control/SkinButtons/Button_1".show()
+		$"../Control/SkinButtons/Button_2".show()		
+		$"../Control/SkinButtons/Button_3".show()
+		$"../Control/SkinButtons/Button_4".show()	
+		$"../Control/SkinButtons/Button_5".show()
+		$"../Control/BossBar".max_value = 290
+		$"../Control/BossBar".value = 290	
+		$"../Control/SkinButtons/Button_0".show()
+		_on_button_0_pressed()		
+
+	if get_node("../SaveLoad").load_score() == 8:
+		$"../Control/SkinButtons/Button_1".show()
+		$"../Control/SkinButtons/Button_2".show()		
+		$"../Control/SkinButtons/Button_3".show()
+		$"../Control/SkinButtons/Button_4".show()	
+		$"../Control/SkinButtons/Button_5".show()
+		$"../Control/BossBar".max_value = 310
+		$"../Control/BossBar".value = 310	
+		$"../Control/SkinButtons/Button_0".show()
+		_on_button_0_pressed()	
+
+	if get_node("../SaveLoad").load_score() == 9:
+		$"../Control/SkinButtons/Button_1".show()
+		$"../Control/SkinButtons/Button_2".show()		
+		$"../Control/SkinButtons/Button_3".show()
+		$"../Control/SkinButtons/Button_4".show()	
+		$"../Control/SkinButtons/Button_5".show()
+		$"../Control/BossBar".max_value = 330
+		$"../Control/BossBar".value = 330	
+		$"../Control/SkinButtons/Button_0".show()
+		_on_button_0_pressed()	
+
+	if get_node("../SaveLoad").load_score() == 10:
+		$"../Control/SkinButtons/Button_1".show()
+		$"../Control/SkinButtons/Button_2".show()		
+		$"../Control/SkinButtons/Button_3".show()
+		$"../Control/SkinButtons/Button_4".show()	
+		$"../Control/SkinButtons/Button_5".show()
+		$"../Control/BossBar".max_value = 350
+		$"../Control/BossBar".value = 350	
+		$"../Control/SkinButtons/Button_0".show()
+		_on_button_0_pressed()	
+							
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$"../Control/Time".text = "Time: " + str(floor($"../LevelTimer".time_left))
 
-	if $"../LevelTimer".time_left <= 100:
+	if $"../LevelTimer".time_left <= 200:
 		$"../LaserTimer".wait_time = 3
 
-	if $"../LevelTimer".time_left <= 90:
+	if $"../LevelTimer".time_left <= 180:
 		$"../LaserTimer".wait_time = 3
 			
-	if $"../LevelTimer".time_left <= 80:
+	if $"../LevelTimer".time_left <= 160:
 		$"../LaserTimer".wait_time = 2.5
 
-	if $"../LevelTimer".time_left <= 70:
+	if $"../LevelTimer".time_left <= 140:
 		$"../LaserTimer".wait_time = 2.5
 
-	if $"../LevelTimer".time_left <= 60:
+	if $"../LevelTimer".time_left <= 120:
 		$"../LaserTimer".wait_time = 2.0
 		
-	if $"../LevelTimer".time_left <= 50:
+	if $"../LevelTimer".time_left <= 100:
 		$"../LaserTimer".wait_time = 2.0	
 		
-	if $"../LevelTimer".time_left <= 40:
+	if $"../LevelTimer".time_left <= 80:
 		$"../LaserTimer".wait_time = 1.5			
 
-	if $"../LevelTimer".time_left <= 30:
+	if $"../LevelTimer".time_left <= 60:
 		$"../LaserTimer".wait_time = 1.4	
 		
-	if $"../LevelTimer".time_left <= 20:
+	if $"../LevelTimer".time_left <= 40:
 		$"../LaserTimer".wait_time = 1.3	
 
-	if $"../LevelTimer".time_left <= 10:
+	if $"../LevelTimer".time_left <= 20:
 		$"../LaserTimer".wait_time = 1.2	
 		
-	if $"../LevelTimer".time_left <= 5:
+	if $"../LevelTimer".time_left <= 10:
 		$"../LaserTimer".wait_time = 1.1			
 	
 	$"../Control/Boss".text = "BOSS " + str($"../Control/BossBar".value)
