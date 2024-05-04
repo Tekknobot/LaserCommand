@@ -23,7 +23,7 @@ func _ready():
 		$"../Control/SkinButtons/Button_2".show()
 		$"../Control/BossBar".max_value = 170
 		$"../Control/BossBar".value = 170		
-		$"../Control/SkinButtons/Button_0".show()
+		#$"../Control/SkinButtons/Button_0".show()
 		_on_button_2_pressed()
 
 	if get_node("../SaveLoad").load_score() == 2:
@@ -32,7 +32,7 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/BossBar".max_value = 190
 		$"../Control/BossBar".value = 190
-		$"../Control/SkinButtons/Button_0".show()
+		#$"../Control/SkinButtons/Button_0".show()
 		_on_button_3_pressed()
 		
 	if get_node("../SaveLoad").load_score() == 3:
@@ -42,7 +42,7 @@ func _ready():
 		$"../Control/SkinButtons/Button_4".show()
 		$"../Control/BossBar".max_value = 210
 		$"../Control/BossBar".value = 210
-		$"../Control/SkinButtons/Button_0".show()
+		#$"../Control/SkinButtons/Button_0".show()
 		_on_button_4_pressed()
 
 	if get_node("../SaveLoad").load_score() == 4:
@@ -53,7 +53,7 @@ func _ready():
 		$"../Control/SkinButtons/Button_5".show()
 		$"../Control/BossBar".max_value = 230
 		$"../Control/BossBar".value = 230	
-		$"../Control/SkinButtons/Button_0".show()	
+		#$"../Control/SkinButtons/Button_0".show()	
 		_on_button_5_pressed()	
 
 	if get_node("../SaveLoad").load_score() == 5:
@@ -171,7 +171,7 @@ func _unhandled_input(event):
 			else:
 				#print("Left button was released")
 				pass
-		if event.button_index == MOUSE_BUTTON_RIGHT and structure_saves >= 10:
+		if event.button_index == MOUSE_BUTTON_RIGHT and structure_saves >= 5:
 			if structure_saves != 0:
 				for i in get_node("/root/Scene2D").structures.size():
 					var tween: Tween = create_tween()

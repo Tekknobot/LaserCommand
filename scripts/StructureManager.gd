@@ -47,8 +47,12 @@ func _unhandled_input(event):
 				$"../SoundStream".stream = $"../SoundStream".map_sfx[6]
 				$"../SoundStream".play()		
 				
-				get_node("../Hovertile").structure_saves += 1	
-				get_node("../Control").get_child(0).text = "Intercepts " + (str(get_node("../Hovertile").structure_saves) + " of 10")	
+				get_node("../Hovertile").structure_saves += 1
+				
+				if get_node("../Hovertile").structure_saves >= 5:
+					get_node("../Hovertile").structure_saves = 5				
+					
+				get_node("../Control").get_child(0).text = "Intercepts " + (str(get_node("../Hovertile").structure_saves) + " of 5")	
 				
 				await get_tree().create_timer(1).timeout
 				laser_intercepted()
@@ -73,10 +77,12 @@ func _unhandled_input(event):
 													
 				await SetLinePoints(tile_position, get_node("../Drone").position)
 		
-		if event.button_index == MOUSE_BUTTON_RIGHT and get_node("../Laser").gameover == false and demolished == true:
+		if event.button_index == MOUSE_BUTTON_RIGHT and get_node("../Laser").gameover == false and demolished == true and get_node("../Hovertile").structure_saves >= 1:
 			if event.pressed and tile_pos == unit_pos:
-				flash()			
-				
+				flash()		
+				get_node("../Hovertile").structure_saves -= 1	
+				get_node("../Control").get_child(0).text = "Intercepts " + (str(get_node("../Hovertile").structure_saves) + " of 5")	
+					
 func SetLinePoints(a: Vector2, b: Vector2):
 	var _a = get_node("../TileMap").local_to_map(a)
 	var _b = get_node("../TileMap").local_to_map(b)		
@@ -120,11 +126,14 @@ func flash():
 	await get_tree().create_timer(0.8).timeout	
 	get_node("../Laser").demolished_structures -= 1
 	self.get_child(0).play("default")
-	get_node("../Control").get_child(1).text = "Demolished "+ str(get_node("../Laser").demolished_structures) + " of " + str($"..".structures.size() / 4)
+	get_node("../Control").get_child(1).text = "Demolished "+ str(get_node("../Laser").demolished_structures) + " of " + str($"..".structures.size() / 5)
 	demolished = false	
 
 	if get_node("../Laser").demolished_structures <= 0:
-		get_node("../Laser").demolished_structures = 0		
+		get_node("../Laser").demolished_structures = 0	
+	
+	if get_node("../Hovertile").structure_saves <= 0:
+		get_node("../Hovertile").structure_saves = 0	
 
 
 func laser_intercepted():

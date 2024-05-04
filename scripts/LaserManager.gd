@@ -100,9 +100,9 @@ func draw_laser():
 				get_node("/root/Scene2D").structures[i].demolished = true
 				
 				demolished_structures += 1				
-				get_node("../Control").get_child(1).text = "Demolished "+ str(demolished_structures) + " of " + str($"..".structures.size() / 4)
+				get_node("../Control").get_child(1).text = "Demolished "+ str(demolished_structures) + " of " + str($"..".structures.size() / 5)
 				
-		if get_node("/root/Scene2D/Laser").demolished_structures >= $"..".structures.size() / 4 and $"../Hovertile".stop_laser != true:
+		if get_node("/root/Scene2D/Laser").demolished_structures >= $"..".structures.size() / 5 and $"../Hovertile".stop_laser != true:
 			$"../Control/GAMEOVER".show()	
 			$"../MapMusicStream".stream = $"../MapMusicStream".map_music[1]
 			$"../MapMusicStream".play()
