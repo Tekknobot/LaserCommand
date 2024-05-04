@@ -53,7 +53,7 @@ func _ready():
 		$"../Control/SkinButtons/Button_5".show()
 		$"../Control/BossBar".max_value = 230
 		$"../Control/BossBar".value = 230	
-		$"../Control/SkinButtons/Button_0".show()	
+		#$"../Control/SkinButtons/Button_0".show()	
 		_on_button_5_pressed()	
 
 	if get_node("../SaveLoad").load_score() == 5:
