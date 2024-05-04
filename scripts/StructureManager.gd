@@ -49,7 +49,9 @@ func _unhandled_input(event):
 				
 				get_node("../Hovertile").structure_saves += 1	
 				get_node("../Control").get_child(0).text = "Intercepts " + (str(get_node("../Hovertile").structure_saves) + " of 10")	
-										
+				
+				await get_tree().create_timer(1).timeout
+				laser_intercepted()
 				return
 					
 		if event.button_index == MOUSE_BUTTON_LEFT and get_node("../Laser").gameover == false and demolished == false:		
@@ -115,7 +117,7 @@ func flash():
 	var tween: Tween = create_tween()
 	for i in 8:
 		tween.tween_property(self, "modulate:v", 1, 0.1).from(5)
-	await get_tree().create_timer(1).timeout	
+	await get_tree().create_timer(0.8).timeout	
 	get_node("../Laser").demolished_structures -= 1
 	self.get_child(0).play("default")
 	get_node("../Control").get_child(1).text = "Demolished "+ str(get_node("../Laser").demolished_structures) + " of " + str($"..".structures.size() / 4)
@@ -123,3 +125,11 @@ func flash():
 
 	if get_node("../Laser").demolished_structures <= 0:
 		get_node("../Laser").demolished_structures = 0		
+
+
+func laser_intercepted():
+	get_node("../LaserTimer").paused = true
+	for i in 32:
+		get_node("../Laser").intercepted_laser()
+		await get_tree().create_timer(0.1).timeout	
+	get_node("../LaserTimer").paused = false

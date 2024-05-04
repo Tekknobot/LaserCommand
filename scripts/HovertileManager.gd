@@ -15,14 +15,14 @@ var shots = 0
 func _ready():
 	if get_node("../SaveLoad").load_score() == 0:
 		$"../Control/SkinButtons/Button_1".show()
-		$"../Control/BossBar".max_value = 110
-		$"../Control/BossBar".value = 110
+		$"../Control/BossBar".max_value = 140
+		$"../Control/BossBar".value = 140
 			
 	if get_node("../SaveLoad").load_score() == 1:
 		$"../Control/SkinButtons/Button_1".show()
 		$"../Control/SkinButtons/Button_2".show()
-		$"../Control/BossBar".max_value = 120
-		$"../Control/BossBar".value = 120		
+		$"../Control/BossBar".max_value = 150
+		$"../Control/BossBar".value = 150		
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_2_pressed()
 
@@ -30,8 +30,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_1".show()
 		$"../Control/SkinButtons/Button_2".show()		
 		$"../Control/SkinButtons/Button_3".show()
-		$"../Control/BossBar".max_value = 130
-		$"../Control/BossBar".value = 130
+		$"../Control/BossBar".max_value = 160
+		$"../Control/BossBar".value = 160
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_3_pressed()
 		
@@ -40,8 +40,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_2".show()		
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()
-		$"../Control/BossBar".max_value = 140
-		$"../Control/BossBar".value = 140
+		$"../Control/BossBar".max_value = 170
+		$"../Control/BossBar".value = 170
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_4_pressed()
 
@@ -51,8 +51,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 150
-		$"../Control/BossBar".value = 150	
+		$"../Control/BossBar".max_value = 180
+		$"../Control/BossBar".value = 180	
 		$"../Control/SkinButtons/Button_0".show()	
 		_on_button_5_pressed()	
 		
@@ -107,7 +107,7 @@ func _unhandled_input(event):
 				pass
 		if event.button_index == MOUSE_BUTTON_RIGHT and structure_saves >= 10:
 			if structure_saves != 0:
-				for i in structure_saves:
+				for i in get_node("/root/Scene2D").structures.size():
 					var tween: Tween = create_tween()
 					var random = rng.randi_range(0, get_node("/root/Scene2D").structures.size()-1)
 					tween.tween_property(get_node("/root/Scene2D").structures[random], "modulate:v", 1, 0.1).from(5)

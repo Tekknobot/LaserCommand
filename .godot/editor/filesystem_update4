@@ -4,3 +4,6 @@ res://shaders/gameboy.gdshader
 res://scenes/scene_2d.scn
 res://scripts/HovertileManager.gd
 res://scripts/StructureManager.gd
+res://scripts/LaserManager.gd
+res://scripts/Scene2DManager.gd
+res://default_bus_layout.tres

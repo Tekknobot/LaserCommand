@@ -70,6 +70,8 @@ var tile_random_id : int
 var tower_coord : Array[Vector2i]
 var tower_int = 0
 
+var empty_tiles : Array[Vector2i]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():	
 	select_biome()	
@@ -457,6 +459,8 @@ func add_to_structures_array():
 	
 	check_duplicates(structures)
 	#SpawnManager.spawn()
+	
+	await check_emptytiles()
 
 func check_duplicates(a):
 	var is_dupe = false
@@ -524,4 +528,8 @@ func _on_reset_button_pressed():
 	$SaveLoad.save_score(0)
 	get_tree().change_scene_to_file("res://scenes/title_2d.scn")
 	
-	
+func check_emptytiles():
+	for i in grid_width:
+		for j in grid_height:
+			if Map.astar_grid.is_point_solid(Vector2i(i, j)) == false:
+				empty_tiles.append(Vector2i(i, j))
