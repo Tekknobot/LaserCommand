@@ -3,3 +3,4 @@ res://scripts/TitleManager.gd
 res://shaders/gameboy.gdshader
 res://scenes/scene_2d.scn
 res://scripts/HovertileManager.gd
+res://scripts/StructureManager.gd

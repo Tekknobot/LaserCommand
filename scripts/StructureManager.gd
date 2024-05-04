@@ -70,7 +70,10 @@ func _unhandled_input(event):
 					get_node("../Control/Power").text = "Power " + (str(get_node("../Hovertile").shots) + " of 20")		
 													
 				await SetLinePoints(tile_position, get_node("../Drone").position)
-						
+		
+		if event.button_index == MOUSE_BUTTON_RIGHT and get_node("../Laser").gameover == false and demolished == true:
+			if event.pressed and tile_pos == unit_pos:
+				flash()			
 				
 func SetLinePoints(a: Vector2, b: Vector2):
 	var _a = get_node("../TileMap").local_to_map(a)
@@ -106,3 +109,13 @@ func SetLinePoints(a: Vector2, b: Vector2):
 	var tween2: Tween = create_tween()
 	tween2.tween_property($"../Control/BossBar", "modulate:v", 1, 0.20).from(5)
 	middle = false
+
+
+func flash():
+	var tween: Tween = create_tween()
+	for i in 8:
+		tween.tween_property(self, "modulate:v", 1, 0.1).from(5)	
+	get_node("../Laser").demolished_structures -= 1
+	self.get_child(0).play("default")
+	get_node("../Control").get_child(1).text = "Demolished "+ str(get_node("../Laser").demolished_structures) + " of " + str($"..".structures.size() / 4)
+	demolished = false	
