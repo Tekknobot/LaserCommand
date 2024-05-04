@@ -115,8 +115,11 @@ func flash():
 	var tween: Tween = create_tween()
 	for i in 8:
 		tween.tween_property(self, "modulate:v", 1, 0.1).from(5)
-	await get_tree().create_timer(1).timeout		
+	await get_tree().create_timer(1).timeout	
 	get_node("../Laser").demolished_structures -= 1
 	self.get_child(0).play("default")
 	get_node("../Control").get_child(1).text = "Demolished "+ str(get_node("../Laser").demolished_structures) + " of " + str($"..".structures.size() / 4)
 	demolished = false	
+
+	if get_node("../Laser").demolished_structures <= 0:
+		get_node("../Laser").demolished_structures = 0		

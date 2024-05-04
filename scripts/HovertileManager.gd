@@ -121,13 +121,13 @@ func _unhandled_input(event):
 					await get_tree().create_timer(0.05).timeout
 			
 			structure_saves = 0	
-			get_node("../Control").get_child(0).text = "Intercepts " + str(structure_saves)						
+			get_node("../Control").get_child(0).text = "Intercepts " + (str(structure_saves)) + " of 10"						
 			get_node("../Control").get_child(1).text = "Demolished " + str(get_node("/root/Scene2D/Laser").demolished_structures) + " of " + str($"..".structures.size() / 4)
 
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and get_node("../Laser").gameover == false:	
 			if x >= get_node("/root/Scene2D").structures.size():
 				barrage = false
-				get_node("../Control/Power").text = "Power " + (str(get_node("../Hovertile").shots) + " of 10")	
+				get_node("../Control/Power").text = "Power " + (str(get_node("../Hovertile").shots) + " of 20")	
 				return				
 			if event.pressed and get_node("/root/Scene2D").structures[x].demolished == false and barrage == true:		
 				var tile_position = get_node("../TileMap").map_to_local(get_node("/root/Scene2D").structures[x].coord) + Vector2(0,0) / 2	
