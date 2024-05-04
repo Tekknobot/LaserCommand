@@ -111,18 +111,22 @@ func draw_laser():
 			$"../Hovertile".stop_laser = true	
 
 	#Boss loss	
-	if $"../Control/BossBar".value <= 0:
+	if $"../Control/BossBar".value <= 0 and gameover == false:
 		$"../Control/CLEARED".show()
 		$"../LevelTimer".paused = true	
 		$"../MapMusicStream".playing = true	
 		get_node("../Hovertile").stop_laser = true	
-		gameover = true
+		
 		wins += 1
-		if wins >= 10:
+		if wins >= 11:
+			gameover = true
 			return
 		else:	
 			get_node("../SaveLoad").save_score(wins)
-
+		
+		gameover = true
+		
+		
 	laser_on = false		
 	line_2d.hide()	
 	get_node("../TileMap").hovertile.show()
