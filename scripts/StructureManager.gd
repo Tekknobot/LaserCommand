@@ -48,7 +48,7 @@ func _unhandled_input(event):
 				$"../SoundStream".play()		
 				
 				get_node("../Hovertile").structure_saves += 1	
-				get_node("../Control").get_child(0).text = "Intercepts " + str(get_node("../Hovertile").structure_saves)	
+				get_node("../Control").get_child(0).text = "Intercepts " + (str(get_node("../Hovertile").structure_saves) + " of 10")	
 										
 				return
 					
@@ -114,7 +114,8 @@ func SetLinePoints(a: Vector2, b: Vector2):
 func flash():
 	var tween: Tween = create_tween()
 	for i in 8:
-		tween.tween_property(self, "modulate:v", 1, 0.1).from(5)	
+		tween.tween_property(self, "modulate:v", 1, 0.1).from(5)
+	await get_tree().create_timer(1).timeout		
 	get_node("../Laser").demolished_structures -= 1
 	self.get_child(0).play("default")
 	get_node("../Control").get_child(1).text = "Demolished "+ str(get_node("../Laser").demolished_structures) + " of " + str($"..".structures.size() / 4)

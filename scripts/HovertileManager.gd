@@ -105,7 +105,7 @@ func _unhandled_input(event):
 			else:
 				#print("Left button was released")
 				pass
-		if event.button_index == MOUSE_BUTTON_RIGHT:
+		if event.button_index == MOUSE_BUTTON_RIGHT and structure_saves >= 10:
 			if structure_saves != 0:
 				for i in structure_saves:
 					var tween: Tween = create_tween()
