@@ -119,7 +119,7 @@ func draw_laser():
 		get_node("../Hovertile").stop_laser = true	
 		
 		wins += 1
-		if wins >= 11:
+		if wins >= 16:
 			gameover = true
 			return
 		else:	

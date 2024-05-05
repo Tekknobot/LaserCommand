@@ -122,7 +122,62 @@ func _ready():
 		$"../Control/BossBar".value = 350	
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_0_pressed()	
-							
+
+	if get_node("../SaveLoad").load_score() == 11:
+		$"../Control/SkinButtons/Button_1".show()
+		$"../Control/SkinButtons/Button_2".show()		
+		$"../Control/SkinButtons/Button_3".show()
+		$"../Control/SkinButtons/Button_4".show()	
+		$"../Control/SkinButtons/Button_5".show()
+		$"../Control/BossBar".max_value = 370
+		$"../Control/BossBar".value = 370	
+		$"../Control/SkinButtons/Button_0".show()
+		_on_button_0_pressed()	
+
+	if get_node("../SaveLoad").load_score() == 12:
+		$"../Control/SkinButtons/Button_1".show()
+		$"../Control/SkinButtons/Button_2".show()		
+		$"../Control/SkinButtons/Button_3".show()
+		$"../Control/SkinButtons/Button_4".show()	
+		$"../Control/SkinButtons/Button_5".show()
+		$"../Control/BossBar".max_value = 390
+		$"../Control/BossBar".value = 390	
+		$"../Control/SkinButtons/Button_0".show()
+		_on_button_0_pressed()	
+
+	if get_node("../SaveLoad").load_score() == 13:
+		$"../Control/SkinButtons/Button_1".show()
+		$"../Control/SkinButtons/Button_2".show()		
+		$"../Control/SkinButtons/Button_3".show()
+		$"../Control/SkinButtons/Button_4".show()	
+		$"../Control/SkinButtons/Button_5".show()
+		$"../Control/BossBar".max_value = 410
+		$"../Control/BossBar".value = 410	
+		$"../Control/SkinButtons/Button_0".show()
+		_on_button_0_pressed()	
+
+	if get_node("../SaveLoad").load_score() == 14:
+		$"../Control/SkinButtons/Button_1".show()
+		$"../Control/SkinButtons/Button_2".show()		
+		$"../Control/SkinButtons/Button_3".show()
+		$"../Control/SkinButtons/Button_4".show()	
+		$"../Control/SkinButtons/Button_5".show()
+		$"../Control/BossBar".max_value = 430
+		$"../Control/BossBar".value = 430	
+		$"../Control/SkinButtons/Button_0".show()
+		_on_button_0_pressed()	
+
+	if get_node("../SaveLoad").load_score() == 15:
+		$"../Control/SkinButtons/Button_1".show()
+		$"../Control/SkinButtons/Button_2".show()		
+		$"../Control/SkinButtons/Button_3".show()
+		$"../Control/SkinButtons/Button_4".show()	
+		$"../Control/SkinButtons/Button_5".show()
+		$"../Control/BossBar".max_value = 450
+		$"../Control/BossBar".value = 450	
+		$"../Control/SkinButtons/Button_0".show()
+		_on_button_0_pressed()	
+											
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$"../Control/Time".text = "Time: " + str(floor($"../LevelTimer".time_left))
@@ -179,12 +234,12 @@ func _unhandled_input(event):
 					var tween: Tween = create_tween()
 					var random = rng.randi_range(0, get_node("/root/Scene2D").structures.size()-1)
 					tween.tween_property(get_node("/root/Scene2D").structures[i], "modulate:v", 1, 0.1).from(5)
-					if get_node("/root/Scene2D").structures[random].demolished == false:
+					if get_node("/root/Scene2D").structures[i].demolished == false:
 						pass
 					else:
-						get_node("/root/Scene2D").structures[random].get_child(0).play("default")
+						get_node("/root/Scene2D").structures[i].get_child(0).play("default")
 						#get_node("/root/Scene2D").structures[random].get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))	
-						get_node("/root/Scene2D").structures[random].demolished = false	
+						get_node("/root/Scene2D").structures[i].demolished = false	
 						get_node("/root/Scene2D/Laser").demolished_structures -= 1
 					await get_tree().create_timer(0.05).timeout				
 				structure_saves = 0	
