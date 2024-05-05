@@ -112,6 +112,7 @@ func draw_laser():
 
 	#Boss loss	
 	if $"../Control/BossBar".value <= 0 and gameover == false:
+		gameover = true
 		$"../Control/CLEARED".show()
 		$"../LevelTimer".paused = true	
 		$"../MapMusicStream".playing = true	
@@ -123,8 +124,6 @@ func draw_laser():
 			return
 		else:	
 			get_node("../SaveLoad").save_score(wins)
-		
-		gameover = true
 		
 		
 	laser_on = false		

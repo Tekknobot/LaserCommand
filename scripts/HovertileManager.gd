@@ -188,7 +188,7 @@ func _unhandled_input(event):
 			
 			structure_saves = 0	
 			get_node("../Control").get_child(0).text = "Intercepts " + (str(structure_saves)) + " of 5"						
-			get_node("../Control").get_child(1).text = "Demolished " + str(get_node("/root/Scene2D/Laser").demolished_structures) + " of " + str($"..".structures.size() / 4)
+			get_node("../Control").get_child(1).text = "Demolished " + str(get_node("/root/Scene2D/Laser").demolished_structures) + " of " + str($"..".structures.size() / 5)
 
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and get_node("../Laser").gameover == false:	
 			if x >= get_node("/root/Scene2D").structures.size():
@@ -198,7 +198,6 @@ func _unhandled_input(event):
 			if event.pressed and get_node("/root/Scene2D").structures[x].demolished == false and barrage == true:		
 				var tile_position = get_node("../TileMap").map_to_local(get_node("/root/Scene2D").structures[x].coord) + Vector2(0,0) / 2	
 				get_node("/root/Scene2D").structures[x].SetLinePoints(tile_position, get_node("../Drone").position)
-
 			x += 1
 						
 func _on_timer_timeout():
