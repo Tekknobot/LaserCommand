@@ -183,7 +183,7 @@ func spawn_structures():
 		Map.set_cell(0, Vector2i(my_random_tile_x, my_random_tile_y), 7, Vector2i(0, 0), 0)
 		progresscount += 1
 			
-	for i in 8: #districts
+	for i in 16: #districts
 		var my_random_tile_x = rng.randi_range(1, 14)
 		var my_random_tile_y = rng.randi_range(1, 14)
 		var tile_pos = Vector2i(my_random_tile_x, my_random_tile_y)
@@ -202,7 +202,7 @@ func spawn_structures():
 		Map.set_cell(0, Vector2i(my_random_tile_x, my_random_tile_y), 8, Vector2i(0, 0), 0)
 		progresscount += 1
 
-	for i in 5: #towers
+	for i in 8: #towers
 		var my_random_tile_x = rng.randi_range(1, 14)
 		var my_random_tile_y = rng.randi_range(1, 14)
 		Map.set_cell(0, Vector2i(my_random_tile_x, my_random_tile_y), 9, Vector2i(0, 0), 0)
@@ -228,7 +228,7 @@ func spawn_structures():
 	structures_blank.append_array(stadiumsblank)
 	structures_blank.append_array(districtsblank)		
 				
-	for i in 5: #towersblank
+	for i in 8: #towersblank
 		var my_random_tile_x = rng.randi_range(1, 13)
 		var my_random_tile_y = rng.randi_range(1, 13)	
 		my_odd_x = my_random_tile_x + ((my_random_tile_x+1)%2 * sign(my_random_tile_x-my_odd_x))	
@@ -284,9 +284,10 @@ func spawn_towersblank():
 	towerblank.append_array(towerblank)				
 	generate_roads()
 
-func generate_roads():				
+func generate_roads():	
+	var rand = rng.randi_range(1, 6)			
 	# Roads		
-	for h in 5:
+	for h in rand:
 		var structure_group = get_tree().get_nodes_in_group("towersblank")
 		var structure_global_pos = structure_group[h].position
 		var structure_pos = Map.local_to_map(structure_global_pos)
