@@ -16,14 +16,14 @@ var recovery = false
 func _ready():
 	if get_node("../SaveLoad").load_score() == 0:
 		$"../Control/SkinButtons/Button_1".show()
-		$"../Control/BossBar".max_value = 150
-		$"../Control/BossBar".value = 150
+		$"../Control/BossBar".max_value = 200
+		$"../Control/BossBar".value = 200
 			
 	if get_node("../SaveLoad").load_score() == 1:
 		$"../Control/SkinButtons/Button_1".show()
 		$"../Control/SkinButtons/Button_2".show()
-		$"../Control/BossBar".max_value = 170
-		$"../Control/BossBar".value = 170		
+		$"../Control/BossBar".max_value = 230
+		$"../Control/BossBar".value = 230		
 		#$"../Control/SkinButtons/Button_0".show()
 		_on_button_2_pressed()
 
@@ -31,8 +31,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_1".show()
 		$"../Control/SkinButtons/Button_2".show()		
 		$"../Control/SkinButtons/Button_3".show()
-		$"../Control/BossBar".max_value = 190
-		$"../Control/BossBar".value = 190
+		$"../Control/BossBar".max_value = 260
+		$"../Control/BossBar".value = 260
 		#$"../Control/SkinButtons/Button_0".show()
 		_on_button_3_pressed()
 		
@@ -41,8 +41,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_2".show()		
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()
-		$"../Control/BossBar".max_value = 210
-		$"../Control/BossBar".value = 210
+		$"../Control/BossBar".max_value = 290
+		$"../Control/BossBar".value = 290
 		#$"../Control/SkinButtons/Button_0".show()
 		_on_button_4_pressed()
 
@@ -52,8 +52,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 230
-		$"../Control/BossBar".value = 230	
+		$"../Control/BossBar".max_value = 320
+		$"../Control/BossBar".value = 320	
 		$"../Control/SkinButtons/Button_0".show()	
 		_on_button_5_pressed()	
 
@@ -63,8 +63,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 250
-		$"../Control/BossBar".value = 250	
+		$"../Control/BossBar".max_value = 350
+		$"../Control/BossBar".value = 350	
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_0_pressed()
 
@@ -74,8 +74,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 270
-		$"../Control/BossBar".value = 270	
+		$"../Control/BossBar".max_value = 380
+		$"../Control/BossBar".value = 380	
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_0_pressed()
 		
@@ -85,8 +85,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 290
-		$"../Control/BossBar".value = 290	
+		$"../Control/BossBar".max_value = 410
+		$"../Control/BossBar".value = 410	
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_0_pressed()		
 
@@ -96,8 +96,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 310
-		$"../Control/BossBar".value = 310	
+		$"../Control/BossBar".max_value = 440
+		$"../Control/BossBar".value = 440	
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_0_pressed()	
 
@@ -107,8 +107,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 330
-		$"../Control/BossBar".value = 330	
+		$"../Control/BossBar".max_value = 470
+		$"../Control/BossBar".value = 470	
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_0_pressed()	
 
@@ -118,8 +118,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 350
-		$"../Control/BossBar".value = 350	
+		$"../Control/BossBar".max_value = 500
+		$"../Control/BossBar".value = 500	
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_0_pressed()	
 
@@ -129,8 +129,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 370
-		$"../Control/BossBar".value = 370	
+		$"../Control/BossBar".max_value = 530
+		$"../Control/BossBar".value = 530	
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_0_pressed()	
 
@@ -140,8 +140,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 390
-		$"../Control/BossBar".value = 390	
+		$"../Control/BossBar".max_value = 560
+		$"../Control/BossBar".value = 560	
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_0_pressed()	
 
@@ -151,8 +151,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 410
-		$"../Control/BossBar".value = 410	
+		$"../Control/BossBar".max_value = 590
+		$"../Control/BossBar".value = 590	
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_0_pressed()	
 
@@ -162,8 +162,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 430
-		$"../Control/BossBar".value = 430	
+		$"../Control/BossBar".max_value = 620
+		$"../Control/BossBar".value = 620	
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_0_pressed()	
 
@@ -173,8 +173,8 @@ func _ready():
 		$"../Control/SkinButtons/Button_3".show()
 		$"../Control/SkinButtons/Button_4".show()	
 		$"../Control/SkinButtons/Button_5".show()
-		$"../Control/BossBar".max_value = 450
-		$"../Control/BossBar".value = 450	
+		$"../Control/BossBar".max_value = 650
+		$"../Control/BossBar".value = 650	
 		$"../Control/SkinButtons/Button_0".show()
 		_on_button_0_pressed()	
 											
