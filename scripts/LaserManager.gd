@@ -120,12 +120,10 @@ func draw_laser():
 		
 		wins += 1
 		if wins >= 16:
-			gameover = true
 			wins == 16
 			return
 		else:	
 			get_node("../SaveLoad").save_score(wins)
-			gameover = true
 		
 		
 	laser_on = false		
@@ -154,14 +152,6 @@ func intercepted_laser():
 	curve.add_point(emitter, Vector2.ZERO, Vector2(0,0))
 	curve.add_point(end_point, Vector2(0,0), Vector2.ZERO)
 	line_2d.points = curve.get_baked_points()
-
-	#var blood_instance = blood.instantiate()
-	#var blood_position = Vector2(laser_pos.x, laser_pos.y-8)
-	#get_parent().add_child(blood_instance)
-	#blood_instance.position = blood_position
-	#blood_instance.emitting = true	
-	#var struct_pos = get_node("../TileMap").local_to_map(Vector2(laser_pos.x, laser_pos.y-8))
-	#blood_instance.z_index = (struct_pos.x + struct_pos.y) + 4
 	
 	for i in 8:
 		line_2d.set_antialiased(false)
@@ -176,46 +166,4 @@ func intercepted_laser():
 				tween.tween_property(get_node("/root/Scene2D").structures[j], "modulate:v", 1, 0.20).from(5)					
 		
 		await get_tree().create_timer(0.05).timeout
-
-	#var explosion_instance = explosion.instantiate()
-	#var explosion_position = Vector2(laser_pos.x, laser_pos.y-8)
-	#var tile_pos = get_node("../TileMap").local_to_map(Vector2(laser_pos.x, laser_pos.y-8))
-	#get_parent().add_child(explosion_instance)
-	#explosion_instance.position = explosion_position
-	#explosion_instance.z_index = (tile_pos.x + tile_pos.y) + 4
-	
-	
-	#for i in $"..".structures.size():
-		#if laser_pos == $"..".structures[i].position and $"..".structures[i].demolished == false:
-			#get_node("/root/Scene2D").structures[i].get_child(0).play("demolished")
-			#get_node("/root/Scene2D").structures[i].get_child(0).modulate = Color8(255, 255, 255) 	
-			#get_node("/root/Scene2D").structures[i].demolished = true
-			#
-			#demolished_structures += 1				
-			#get_node("../Control").get_child(1).text = "Demolished "+ str(demolished_structures) + " of " + str($"..".structures.size() / 4)
-			#
-	#if get_node("/root/Scene2D/Laser").demolished_structures >= $"..".structures.size() / 4 and $"../Hovertile".stop_laser != true:
-		#$"../Control/GAMEOVER".show()	
-		#$"../MapMusicStream".stream = $"../MapMusicStream".map_music[1]
-		#$"../MapMusicStream".play()
-		#
-		#$"../LevelTimer".paused = true	
-		#$"../Hovertile".stop_laser = true	
-
-	#Boss loss	
-	if $"../Control/BossBar".value <= 0:
-		$"../Control/CLEARED".show()
-		$"../LevelTimer".paused = true	
-		$"../MapMusicStream".playing = true	
-		get_node("../Hovertile").stop_laser = true	
-		gameover = true
-		wins += 1
-		if wins >= 11:
-			return
-		else:	
-			get_node("../SaveLoad").save_score(wins)
-
-	#laser_on = false		
-	#line_2d.hide()	
-	get_node("../TileMap").hovertile.show()
 	
