@@ -121,9 +121,11 @@ func draw_laser():
 		wins += 1
 		if wins >= 16:
 			gameover = true
+			wins == 16
 			return
 		else:	
 			get_node("../SaveLoad").save_score(wins)
+			gameover = true
 		
 		
 	laser_on = false		
