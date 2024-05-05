@@ -10,6 +10,7 @@ var stop_laser = false
 var x = 0
 var barrage = false
 var shots = 0
+var recovery = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -171,12 +172,13 @@ func _unhandled_input(event):
 			else:
 				#print("Left button was released")
 				pass
-		if event.button_index == MOUSE_BUTTON_RIGHT and structure_saves >= 5:
+		if event.button_index == MOUSE_BUTTON_RIGHT and structure_saves >= 5 and recovery == false:
 			if structure_saves != 0:
+				recovery = true
 				for i in get_node("/root/Scene2D").structures.size():
 					var tween: Tween = create_tween()
 					var random = rng.randi_range(0, get_node("/root/Scene2D").structures.size()-1)
-					tween.tween_property(get_node("/root/Scene2D").structures[random], "modulate:v", 1, 0.1).from(5)
+					tween.tween_property(get_node("/root/Scene2D").structures[i], "modulate:v", 1, 0.1).from(5)
 					if get_node("/root/Scene2D").structures[random].demolished == false:
 						pass
 					else:
@@ -184,12 +186,12 @@ func _unhandled_input(event):
 						#get_node("/root/Scene2D").structures[random].get_child(0).modulate = Color8(rng.randi_range(150, 255), rng.randi_range(150, 255), rng.randi_range(150, 255))	
 						get_node("/root/Scene2D").structures[random].demolished = false	
 						get_node("/root/Scene2D/Laser").demolished_structures -= 1
-					await get_tree().create_timer(0.05).timeout
-			
-			structure_saves = 0	
-			get_node("../Control").get_child(0).text = "Intercepts " + (str(structure_saves)) + " of 5"						
-			get_node("../Control").get_child(1).text = "Demolished " + str(get_node("/root/Scene2D/Laser").demolished_structures) + " of " + str($"..".structures.size() / 5)
-
+					await get_tree().create_timer(0.05).timeout				
+				structure_saves = 0	
+				get_node("../Control").get_child(0).text = "Intercepts " + (str(structure_saves)) + " of 5"						
+				get_node("../Control").get_child(1).text = "Demolished " + str(get_node("/root/Scene2D/Laser").demolished_structures) + " of " + str($"..".structures.size() / 5)
+				recovery = false
+				
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and get_node("../Laser").gameover == false:	
 			if x >= get_node("/root/Scene2D").structures.size():
 				barrage = false
