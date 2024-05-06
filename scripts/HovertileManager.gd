@@ -216,7 +216,9 @@ func _unhandled_input(event):
 						get_node("/root/Scene2D").structures[i].demolished = false	
 						get_node("/root/Scene2D/Laser").demolished_structures -= 1				
 						$"../Control/PlayerBar".max_value = $"..".structures.size() / 5
-						$"../Control/PlayerBar".value += 1						
+						$"../Control/PlayerBar".value += 1		
+						get_node("../Control").get_child(5).text = "Player " + str($"../Control/PlayerBar".value)
+										
 					await get_tree().create_timer(0.05).timeout				
 				structure_saves = 0	
 				get_node("../Control").get_child(0).text = "Intercepts " + (str(structure_saves)) + " of 5"						
