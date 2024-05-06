@@ -285,7 +285,7 @@ func spawn_towersblank():
 	generate_roads()
 
 func generate_roads():	
-	var rand = rng.randi_range(1, 6)			
+	var rand = rng.randi_range(1, 4)			
 	# Roads		
 	for h in rand:
 		var structure_group = get_tree().get_nodes_in_group("towersblank")

@@ -180,41 +180,15 @@ func _ready():
 											
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$"../Control/Time".text = "Time: " + str(floor($"../LevelTimer".time_left))
+	$"../Control/Time".text = "Time: " + str(floor($"../LevelTimer".time_left))	
 
-	if $"../LevelTimer".time_left <= 200:
-		$"../LaserTimer".wait_time = 3
-
-	if $"../LevelTimer".time_left <= 180:
-		$"../LaserTimer".wait_time = 3
-			
-	if $"../LevelTimer".time_left <= 160:
-		$"../LaserTimer".wait_time = 2.5
-
-	if $"../LevelTimer".time_left <= 140:
-		$"../LaserTimer".wait_time = 2.5
-
-	if $"../LevelTimer".time_left <= 120:
-		$"../LaserTimer".wait_time = 2.0
-		
-	if $"../LevelTimer".time_left <= 100:
-		$"../LaserTimer".wait_time = 2.0	
-		
-	if $"../LevelTimer".time_left <= 80:
-		$"../LaserTimer".wait_time = 1.5			
-
-	if $"../LevelTimer".time_left <= 60:
-		$"../LaserTimer".wait_time = 1.4	
-		
-	if $"../LevelTimer".time_left <= 40:
-		$"../LaserTimer".wait_time = 1.3	
-
-	if $"../LevelTimer".time_left <= 20:
-		$"../LaserTimer".wait_time = 1.2	
-		
-	if $"../LevelTimer".time_left <= 10:
-		$"../LaserTimer".wait_time = 1.1			
+	$"../LaserTimer".wait_time = $"../Control/BossBar".value / 100
+	if $"../LaserTimer".wait_time >= 3.0:
+		$"../LaserTimer".wait_time = 3.0
 	
+	if $"../LaserTimer".wait_time <= 1.1:
+		$"../LaserTimer".wait_time = 1.1
+		
 	$"../Control/Boss".text = "BOSS " + str($"../Control/BossBar".value)
 					
 func _unhandled_input(event):
