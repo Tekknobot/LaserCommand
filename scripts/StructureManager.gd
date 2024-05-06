@@ -82,6 +82,8 @@ func _unhandled_input(event):
 				flash()		
 				get_node("../Hovertile").structure_saves -= 1	
 				get_node("../Control").get_child(0).text = "Intercepts " + (str(get_node("../Hovertile").structure_saves) + " of 5")	
+				$"../Control/PlayerBar".max_value = $"..".structures.size() / 5
+				$"../Control/PlayerBar".value += 1	
 					
 func SetLinePoints(a: Vector2, b: Vector2):
 	var _a = get_node("../TileMap").local_to_map(a)
