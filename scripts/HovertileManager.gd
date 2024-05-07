@@ -12,6 +12,8 @@ var barrage = false
 var shots = 0
 var recovery = false
 
+var landmines = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if get_node("../SaveLoad").load_score() == 0:
@@ -73,11 +75,21 @@ func _process(delta):
 					
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed and $"../Laser".laser_on == false:
-				#print("Left button was clicked at ", event.position)
-				#$"../Laser".draw_laser_player()
-				pass
+		var mouse_position = get_global_mouse_position()
+		mouse_position.y += 8
+		var tile_pos = get_node("../TileMap").local_to_map(mouse_position)	
+		var tile_position_local = get_node("../TileMap").map_to_local(tile_pos) + Vector2(0,0) / 2	
+		if event.button_index == MOUSE_BUTTON_RIGHT and get_node("../TileMap").astar_grid.is_point_solid(tile_pos) == false and get_node("../TileMap").get_cell_source_id(0, tile_pos) != -1:
+			if event.pressed:
+				var landmine = preload("res://scenes/mines/landmine.scn")
+				var landmine_instance = landmine.instantiate()
+				var landmine_position = get_node("../TileMap").map_to_local(tile_pos) + Vector2(0,0) / 2
+				landmine_instance.set_name("landmine")
+				get_parent().add_child(landmine_instance)
+				landmine_instance.position = landmine_position	
+				landmine_instance.z_index = (tile_pos.x + tile_pos.y) - 1
+				landmine_instance.add_to_group("mines")
+				landmines = get_tree().get_nodes_in_group("mines")
 			else:
 				#print("Left button was released")
 				pass
@@ -166,3 +178,4 @@ func _on_button_0_pressed():
 
 func _on_menu_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/title_2d.scn")
+

@@ -85,6 +85,10 @@ func _unhandled_input(event):
 				$"../Control/PlayerBar".max_value = $"..".structures.size() / 5
 				$"../Control/PlayerBar".value += 1	
 				get_node("../Control").get_child(5).text = "Player " + str($"../Control/PlayerBar".value)
+	#
+		#if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and get_node("../Laser").gameover == false:
+			#if event.pressed and tile_pos == unit_pos:
+				#flash()
 					
 func SetLinePoints(a: Vector2, b: Vector2):
 	var _a = get_node("../TileMap").local_to_map(a)

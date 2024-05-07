@@ -167,6 +167,24 @@ func intercepted_laser():
 			if laser_pos == $"..".structures[j].position:	
 				var tween: Tween = create_tween()
 				tween.tween_property(get_node("/root/Scene2D").structures[j], "modulate:v", 1, 0.20).from(5)					
-		
 		await get_tree().create_timer(0.05).timeout
+
+	for k in $"../Hovertile".landmines.size():	
+		if laser_pos == $"../Hovertile".landmines[k].position:
+			var explosion_instance = explosion.instantiate()
+			var explosion_position = Vector2(laser_pos.x, laser_pos.y-8)
+			var tile_pos = get_node("../TileMap").local_to_map(Vector2(laser_pos.x, laser_pos.y-8))
+			get_parent().add_child(explosion_instance)
+			explosion_instance.position = explosion_position
+			explosion_instance.z_index = (tile_pos.x + tile_pos.y) + 4
+			$"../Hovertile".landmines[k].hide()
+			
+			$"../SoundStream".stream = $"../SoundStream".map_sfx[8]
+			$"../SoundStream".play()	
+			get_node("../Camera2D").shake(1, 50, 1)
+			$"../Control/BossBar".value -= 1
+			var tween2: Tween = create_tween()
+			tween2.tween_property($"../Control/BossBar", "modulate:v", 1, 0.20).from(5)
+			
+			return		
 	
