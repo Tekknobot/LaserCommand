@@ -95,8 +95,8 @@ func SetLinePoints(a: Vector2, b: Vector2):
 	seeker_instance.set_name("seeker")
 	get_parent().add_child(seeker_instance)	
 
-	$"../SoundStream".stream = $"../SoundStream".map_sfx[7]
-	$"../SoundStream".play()	
+	$"../SFXStream".stream = $"../SFXStream".map_sfx[0]
+	$"../SFXStream".play()	
 	
 	seeker_instance.position = a
 	seeker_instance.z_index = seeker_instance.position.x + seeker_instance.position.y
