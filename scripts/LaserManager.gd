@@ -168,7 +168,7 @@ func intercepted_laser():
 				var tween: Tween = create_tween()
 				tween.tween_property(get_node("/root/Scene2D").structures[j], "modulate:v", 1, 0.20).from(5)					
 		await get_tree().create_timer(0.05).timeout
-
+	
 	for k in $"../Hovertile".landmines.size():	
 		if laser_pos == $"../Hovertile".landmines[k].position:
 			var explosion_instance = explosion.instantiate()
@@ -185,6 +185,5 @@ func intercepted_laser():
 			$"../Control/BossBar".value -= 1
 			var tween2: Tween = create_tween()
 			tween2.tween_property($"../Control/BossBar", "modulate:v", 1, 0.20).from(5)
-			
-			return		
-	
+			return
+					

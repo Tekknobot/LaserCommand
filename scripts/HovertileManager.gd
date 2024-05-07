@@ -93,7 +93,7 @@ func _unhandled_input(event):
 			else:
 				#print("Left button was released")
 				pass
-		if event.button_index == MOUSE_BUTTON_RIGHT and structure_saves >= 5 and recovery == false and $"../Laser".gameover == false:
+		if event.button_index == MOUSE_BUTTON_RIGHT and structure_saves >= 5 and recovery == false and $"../Laser".gameover == false and get_node("../TileMap").astar_grid.is_point_solid(tile_pos) == true:
 			if structure_saves != 0:
 				recovery = true
 				for i in get_node("/root/Scene2D").structures.size():
