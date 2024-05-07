@@ -122,8 +122,8 @@ func draw_laser():
 		get_node("../Hovertile").stop_laser = true	
 		
 		wins += 1
-		if wins >= 16:
-			wins == 16
+		if wins >= 5:
+			wins == 5
 			return
 		else:	
 			get_node("../SaveLoad").save_score(wins)
