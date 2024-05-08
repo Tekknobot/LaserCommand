@@ -90,6 +90,8 @@ func _unhandled_input(event):
 				landmine_instance.z_index = (tile_pos.x + tile_pos.y) - 1
 				landmine_instance.add_to_group("mines")
 				landmines = get_tree().get_nodes_in_group("mines")
+				$"../SoundStream".stream = $"../SoundStream".map_sfx[11]
+				$"../SoundStream".play()					
 			else:
 				#print("Left button was released")
 				pass
