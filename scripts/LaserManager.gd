@@ -180,10 +180,18 @@ func intercepted_laser():
 			$"../Hovertile".landmines[k].hide()
 			$"../Hovertile".landmines.remove_at(k)
 			$"../SoundStream".stream = $"../SoundStream".map_sfx[8]
-			$"../SoundStream".play()	
+			$"../SoundStream".play()
 			get_node("../Camera2D").shake(1, 50, 1)
 			$"../Control/BossBar".value -= 1
 			var tween2: Tween = create_tween()
 			tween2.tween_property($"../Control/BossBar", "modulate:v", 1, 0.20).from(5)
+			if get_node("../Control/Power").text == "Power Full":
+				return				
+			elif get_node("../Hovertile").shots <= 19:
+				get_node("../Hovertile").shots += 1
+				get_node("../Control/Power").text = "Power " + (str(get_node("../Hovertile").shots) + " of 20")
+				if get_node("../Hovertile").shots >= 19:	
+					get_node("../Control/Power").text = "Power Full"
+					get_node("../Hovertile").barrage = true			
 			break
 					

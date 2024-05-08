@@ -125,9 +125,11 @@ func _unhandled_input(event):
 				
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and get_node("../Laser").gameover == false:	
 			if x >= get_node("/root/Scene2D").structures.size():
-				barrage = false
+				get_node("../Hovertile").shots = 0	
 				get_node("../Control/Power").text = "Power " + (str(get_node("../Hovertile").shots) + " of 20")	
-				return				
+				x = 0
+				barrage = false
+				return	
 			if event.pressed and get_node("/root/Scene2D").structures[x].demolished == false and barrage == true:		
 				var tile_position = get_node("../TileMap").map_to_local(get_node("/root/Scene2D").structures[x].coord) + Vector2(0,0) / 2	
 				get_node("/root/Scene2D").structures[x].SetLinePoints(tile_position, get_node("../Drone").position)

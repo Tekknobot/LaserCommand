@@ -74,7 +74,10 @@ func _unhandled_input(event):
 				elif get_node("../Hovertile").shots <= 19:
 					get_node("../Hovertile").shots += 1	
 					get_node("../Control/Power").text = "Power " + (str(get_node("../Hovertile").shots) + " of 20")		
-													
+				elif get_node("../Hovertile").shots >= 19:
+					get_node("../Control/Power").text = "Power Full"		
+					get_node("../Hovertile").shots = 0	
+											
 				await SetLinePoints(tile_position, get_node("../Drone").position)
 		
 		if event.button_index == MOUSE_BUTTON_RIGHT and get_node("../Laser").gameover == false and demolished == true and get_node("../Hovertile").structure_saves >= 1:
@@ -145,7 +148,10 @@ func flash():
 
 func laser_intercepted():
 	get_node("../LaserTimer").paused = true
+	#Engine.time_scale = 0.5
 	for i in 32:
 		get_node("../Laser").intercepted_laser()
 		await get_tree().create_timer(0.1).timeout	
+		
+	#Engine.time_scale = 1.0	
 	get_node("../LaserTimer").paused = false
