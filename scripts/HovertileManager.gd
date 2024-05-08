@@ -123,7 +123,7 @@ func _unhandled_input(event):
 					await get_tree().create_timer(0.05).timeout				
 				recovery = false
 				
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP and get_node("../Laser").gameover == false:	
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and get_node("../Laser").gameover == false and barrage == true:	
 			if x >= get_node("/root/Scene2D").structures.size():
 				get_node("../Hovertile").shots = 0	
 				get_node("../Control/Power").text = "Power " + (str(get_node("../Hovertile").shots) + " of 20")	
