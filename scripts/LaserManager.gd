@@ -178,12 +178,12 @@ func intercepted_laser():
 			explosion_instance.position = explosion_position
 			explosion_instance.z_index = (tile_pos.x + tile_pos.y) + 4
 			$"../Hovertile".landmines[k].hide()
-			
+			$"../Hovertile".landmines.remove_at(k)
 			$"../SoundStream".stream = $"../SoundStream".map_sfx[8]
 			$"../SoundStream".play()	
 			get_node("../Camera2D").shake(1, 50, 1)
 			$"../Control/BossBar".value -= 1
 			var tween2: Tween = create_tween()
 			tween2.tween_property($"../Control/BossBar", "modulate:v", 1, 0.20).from(5)
-			return
+			break
 					

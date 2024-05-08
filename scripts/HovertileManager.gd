@@ -81,6 +81,10 @@ func _unhandled_input(event):
 		var tile_position_local = get_node("../TileMap").map_to_local(tile_pos) + Vector2(0,0) / 2	
 		if event.button_index == MOUSE_BUTTON_RIGHT and get_node("../TileMap").astar_grid.is_point_solid(tile_pos) == false and get_node("../TileMap").get_cell_source_id(0, tile_pos) != -1:
 			if event.pressed:
+				for i in landmines.size():
+					if tile_position_local == landmines[i].position:
+						return
+						
 				var landmine = preload("res://scenes/mines/landmine.scn")
 				var landmine_instance = landmine.instantiate()
 				var landmine_position = get_node("../TileMap").map_to_local(tile_pos) + Vector2(0,0) / 2
