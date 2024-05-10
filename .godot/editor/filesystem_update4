@@ -2,9 +2,7 @@ res://scenes/title_2d.scn
 res://scripts/TitleManager.gd
 res://shaders/gameboy.gdshader
 res://scenes/scene_2d.scn
-res://scripts/Scene2DManager.gd
 res://scenes/building.scn
-res://scripts/StructureManager.gd
+res://scenes/district.scn
 res://scenes/stadium.scn
 res://scenes/tower.scn
-res://scenes/district.scn
