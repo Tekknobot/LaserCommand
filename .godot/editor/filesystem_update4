@@ -2,10 +2,9 @@ res://scenes/title_2d.scn
 res://scripts/TitleManager.gd
 res://shaders/gameboy.gdshader
 res://scenes/scene_2d.scn
-res://scripts/HovertileManager.gd
-res://scripts/StructureManager.gd
-res://scripts/LaserManager.gd
 res://scripts/Scene2DManager.gd
-res://default_bus_layout.tres
-res://scripts/SaveLoadManager.gd
-res://scripts/SpawnManager.gd
+res://scenes/building.scn
+res://scripts/StructureManager.gd
+res://scenes/stadium.scn
+res://scenes/tower.scn
+res://scenes/district.scn

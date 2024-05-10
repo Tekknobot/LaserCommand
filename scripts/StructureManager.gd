@@ -108,8 +108,10 @@ func SetLinePoints(a: Vector2, b: Vector2):
 	seeker_instance.position = a
 	seeker_instance.z_index = seeker_instance.position.x + seeker_instance.position.y
 	var tween: Tween = create_tween()
-	tween.tween_property(seeker_instance, "position", b, 4).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)	
-	await get_tree().create_timer(4).timeout		
+	tween.tween_property(seeker_instance, "position", b, 4).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	self.get_child(0).play("cooldown")	
+	await get_tree().create_timer(4).timeout
+	self.get_child(0).play("default")			
 
 	var explosion = preload("res://scenes/vfx/explosion.scn")
 	var explosion_instance = explosion.instantiate()
