@@ -110,8 +110,9 @@ func draw_laser():
 			$"../MapMusicStream".stream = $"../MapMusicStream".map_music[1]
 			$"../MapMusicStream".play()
 			
+			gameover = true	
 			$"../LevelTimer".paused = true	
-			$"../Hovertile".stop_laser = true	
+			$"../Hovertile".stop_laser = true
 
 	#Boss loss	
 	if $"../Control/BossBar".value <= 0 and gameover == false:

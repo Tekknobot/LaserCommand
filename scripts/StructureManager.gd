@@ -110,7 +110,9 @@ func SetLinePoints(a: Vector2, b: Vector2):
 	var tween: Tween = create_tween()
 	tween.tween_property(seeker_instance, "position", b, 4).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 	self.get_child(0).play("cooldown")	
+	demolished = true
 	await get_tree().create_timer(4).timeout
+	demolished = false
 	self.get_child(0).play("default")			
 
 	var explosion = preload("res://scenes/vfx/explosion.scn")

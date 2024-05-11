@@ -74,12 +74,12 @@ func _process(delta):
 	$"../Control/Boss".text = "BOSS " + str($"../Control/BossBar".value)
 					
 func _unhandled_input(event):
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and get_node("../Laser").gameover == false:
 		var mouse_position = get_global_mouse_position()
 		mouse_position.y += 8
 		var tile_pos = get_node("../TileMap").local_to_map(mouse_position)	
 		var tile_position_local = get_node("../TileMap").map_to_local(tile_pos) + Vector2(0,0) / 2	
-		if event.button_index == MOUSE_BUTTON_RIGHT and get_node("../TileMap").astar_grid.is_point_solid(tile_pos) == false and get_node("../TileMap").get_cell_source_id(0, tile_pos) != -1:
+		if event.button_index == MOUSE_BUTTON_RIGHT and get_node("../TileMap").astar_grid.is_point_solid(tile_pos) == false and get_node("../Laser").gameover == false and get_node("../TileMap").get_cell_source_id(0, tile_pos) != -1:
 			if event.pressed:
 				for i in landmines.size():
 					if tile_position_local == landmines[i].position:
@@ -99,7 +99,7 @@ func _unhandled_input(event):
 			else:
 				#print("Left button was released")
 				pass
-		if event.button_index == MOUSE_BUTTON_RIGHT and structure_saves >= 5 and recovery == false and $"../Laser".gameover == false and get_node("../TileMap").astar_grid.is_point_solid(tile_pos) == true:
+		if event.button_index == MOUSE_BUTTON_RIGHT and structure_saves >= 5 and recovery == false and get_node("../Laser").gameover == false and get_node("../TileMap").astar_grid.is_point_solid(tile_pos) == true:
 			if structure_saves != 0:
 				recovery = true
 				for i in get_node("/root/Scene2D").structures.size():

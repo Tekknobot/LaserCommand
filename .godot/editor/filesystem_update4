@@ -12,3 +12,6 @@ res://default_bus_layout.tres
 res://scripts/SoundStreamManager.gd
 res://scripts/MapMusicStreamManager.gd
 res://scripts/LevelMusicStreamManager.gd
+res://scripts/HovertileManager.gd
+res://scripts/LaserManager.gd
+res://scripts/StructureManager.gd
