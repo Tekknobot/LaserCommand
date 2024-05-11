@@ -113,6 +113,8 @@ func draw_laser():
 			gameover = true	
 			$"../LevelTimer".paused = true	
 			$"../Hovertile".stop_laser = true
+			
+			$"../LevelMusicStream".stop()
 
 	#Boss loss	
 	if $"../Control/BossBar".value <= 0 and gameover == false:
