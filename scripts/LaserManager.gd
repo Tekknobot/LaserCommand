@@ -33,6 +33,7 @@ var wins = 0
 var t = 0.0
 
 func _ready():
+	AudioServer.set_bus_mute(2, false) #Audio bus
 	laser_a = Vector2(0,-500)
 	wins = get_node("../SaveLoad").load_score()
 
@@ -122,11 +123,18 @@ func draw_laser():
 		$"../Control/CLEARED".show()
 		$"../LevelTimer".paused = true	
 		$"../MapMusicStream".playing = true	
+		$"../MapMusicStream".volume_db = 0
 		get_node("../Hovertile").stop_laser = true	
 		
+		$"../LevelMusicStream".stop()
+		$"../MapMusicStream".stream = $"../MapMusicStream".map_music[0]
+		$"../MapMusicStream".play()
+		$"../SoundStream".volume_db = -80
+		AudioServer.set_bus_mute(2, true)
+		
 		wins += 1
-		if wins >= 5:
-			wins == 5
+		if wins >= 6:
+			wins == 6
 			return
 		else:	
 			get_node("../SaveLoad").save_score(wins)
