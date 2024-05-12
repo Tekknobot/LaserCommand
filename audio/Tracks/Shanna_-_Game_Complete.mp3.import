@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Shanna_-_Game_Complete.mp3-9539a5c468503aca99
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
